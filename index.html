@@ -746,9 +746,9 @@ function cabinet(w,h,u0,v0,u1,v1,mat){
   c.add(box(w-.04,h-.04,.46,mBack,0,0,-.04));
   const p=frontPlane(w+.006,h+.006,u0,v0,u1,v1,mat);p.position.z=.27;c.add(p);
   /* rear: hub board, handles */
-  const hb=box(w*.34,h*.22,.1,mDark,0,0,-.31);c.add(hb);
+  if(!LITE){const hb=box(w*.34,h*.22,.1,mDark,0,0,-.31);c.add(hb);
   c.add(box(w*.1,.1,.14,mGrey,-w*.3,h*.34,-.32),box(w*.1,.1,.14,mGrey,w*.3,h*.34,-.32));
-  c.add(box(w*.92,.09,.08,mDark,0,-h*.2,-.29),box(.09,h*.9,.08,mDark,-w*.2,0,-.29),box(.09,h*.9,.08,mDark,w*.2,0,-.29));
+  c.add(box(w*.92,.09,.08,mDark,0,-h*.2,-.29),box(.09,h*.9,.08,mDark,-w*.2,0,-.29),box(.09,h*.9,.08,mDark,w*.2,0,-.29));}
   return c;
 }
 
@@ -825,7 +825,8 @@ compare.visible=false;
 const caps=[...document.querySelectorAll('.cap')].map(el=>({el,a:+el.dataset.a,b:+el.dataset.b,center:el.classList.contains('center')}));
 function updateCaps(p){caps.forEach(c=>{
   const o=(c.a<0?1:ease(map(p,c.a,c.a+.012)))*(1-ease(map(p,c.b-.012,c.b)));
-  c.el.style.opacity=o.toFixed(3);c.el.classList.toggle('on',o>.5);
+  const os=o.toFixed(3);if(c.os===os)return;c.os=os;
+  c.el.style.opacity=os;c.el.classList.toggle('on',o>.5);
   const dy=(1-o)*22;c.el.style.transform=c.center?`translateY(calc(-50% + ${dy}px))`:`translateY(${dy}px)`;
   c.el.style.visibility=o<.005?'hidden':'visible';
 })}
@@ -853,6 +854,7 @@ addEventListener('resize',resize);resize();
 
 const TX=-24,TY=WALL_CY+11.5,ZMIN=.5;
 const look=new THREE.Vector3(),clock=new THREE.Clock();
+let lastBg='',lastFade='';const BG={set v(s){if(s!==lastBg){lastBg=s;bg.style.background=s}}};
 /* scroll position -> story position: long assembly, then a near-stop on the finished wall */
 const KEYS=[[0,0],[.05,.11],[.40,.30],[.49,.312],[.60,.445],[.69,.54],[.86,.715],[1,.845]];
 function timeline(s){for(let i=1;i<KEYS.length;i++){if(s<=KEYS[i][0]){const a=KEYS[i-1],b=KEYS[i];return mix(a[1],b[1],(s-a[0])/(b[0]-a[0]))}}return .845}
@@ -871,10 +873,10 @@ function frame(){
   const asp=camera.aspect,k=asp<1.5?Math.max(1,1.5/asp*.92):1,port=asp<1,kW=port?Math.min(k,.93/asp*.89):k;
   const stageA=p<.725;
   wall.visible=stageA;hall.visible=stageA&&p>.305;compare.visible=!stageA;
-  fade.style.opacity=(Math.max(1-Math.abs(p-.725)/.018,1-Math.abs(p-.845)/.012,0)).toFixed(3);
+  const fo=(Math.max(1-Math.abs(p-.725)/.018,1-Math.abs(p-.845)/.012,0)).toFixed(2);if(fo!==lastFade){lastFade=fo;fade.style.opacity=fo}
 
   if(stageA){
-    const pw=ease(map(p,.265,.30));bg.style.background=pw>.01?`radial-gradient(70% 60% at 50% 35%,rgba(22,72,128,${(.9*pw).toFixed(3)}) 0%,rgba(8,22,44,${(.8*pw).toFixed(3)}) 45%,#03060c 100%)`:'#05070b';
+    const pw=Math.round(ease(map(p,.265,.30))*50)/50;BG.v=pw>.01?`radial-gradient(70% 60% at 50% 35%,rgba(22,72,128,${(.9*pw).toFixed(3)}) 0%,rgba(8,22,44,${(.8*pw).toFixed(3)}) 45%,#03060c 100%)`:'#05070b';
     const a=map(p,.11,.30);
     cabs.forEach(m=>{const u=m.userData,go=a>u.delay,was=u.q;
       /* scroll decides when a cabinet leaves; the flight itself always runs at full speed */
@@ -916,7 +918,7 @@ function frame(){
     key.intensity=mix(1.1,.2,power);
     void uw;
   }else{
-    bg.style.background='radial-gradient(70% 70% at 62% 45%,#0d3d21 0%,#05070b 72%)';
+    BG.v='radial-gradient(70% 70% at 62% 45%,#0d3d21 0%,#05070b 72%)';
     const q=map(p,.725,.845);
     shared.uSmd.value=1;shared.uGob.value=shared.uCob.value=0;
     cmpPivot.rotation.y=mix(-.5,.42,ease(q));
@@ -927,11 +929,9 @@ function frame(){
     camera.lookAt(300+off,y,0);camera.updateProjectionMatrix();
     rim.color.setHex(0x7dffa0);rim.position.set(300-9,6,6);rim.intensity=1.5;key.intensity=1;
   }
-  const still=Math.abs(target-sp)<.0005;
-  if(!(LITE&&still&&(skipFlip=!skipFlip)))renderer.render(scene,camera);
+  renderer.render(scene,camera);
   requestAnimationFrame(frame);
 }
-let skipFlip=false;
 if(document.fonts&&document.fonts.load)Promise.all([document.fonts.load('800 196px Paperlogy','공간혁신'),document.fonts.load('700 62px Paperlogy','규격')]).then(()=>fontJobs.forEach(f=>f())).catch(()=>{});
 readScroll();sp=target;
 requestAnimationFrame(frame);
@@ -1060,6 +1060,9 @@ let cw0=innerWidth;addEventListener('resize',()=>{if(innerWidth!==cw0){cw0=inner
 <script>
 /* floating contact: after the opening film, hidden over the contact footer */
 (function(){var f=document.getElementById('fab'),c=document.getElementById('contact'),ct=0,on=null;function m(){ct=c.getBoundingClientRect().top+scrollY}function u(){var v=scrollY>innerHeight*.8&&ct-scrollY>innerHeight*.6;if(v!==on){on=v;f.classList.toggle('on',v)}}addEventListener('scroll',u,{passive:true});addEventListener('resize',function(){m();u()});addEventListener('load',function(){m();u()});if(window.ResizeObserver){new ResizeObserver(function(){m();u()}).observe(document.body)}m();u()})();
+</script>
+<script>
+if(/[?&]fps\b/.test(location.search)){(function(){var d=document.createElement('div');d.style.cssText='position:fixed;left:8px;top:64px;z-index:99;background:rgba(0,0,0,.75);color:#7dffa0;font:700 13px/1.4 monospace;padding:6px 9px;border-radius:6px;pointer-events:none;white-space:pre';document.body.appendChild(d);var n=0,t0=performance.now(),worst=0,last=t0;function f(now){n++;worst=Math.max(worst,now-last);last=now;if(now-t0>=500){var c=document.getElementById('gl');d.textContent=Math.round(n*1000/(now-t0))+' fps  (최저 '+Math.round(1000/worst)+')\n화면 '+innerWidth+'x'+innerHeight+' dpr '+devicePixelRatio+'\n3D '+(c?c.width+'x'+c.height:'-');n=0;t0=now;worst=0}requestAnimationFrame(f)}requestAnimationFrame(f)})()}
 </script>
 </body>
 </html>
