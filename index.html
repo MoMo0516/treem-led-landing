@@ -353,6 +353,10 @@ table.spec th.k{background:var(--navy);color:#fff}
 /* V4.7 no horizontal overflow on phones */
 html,body{overflow-x:clip;max-width:100%}
 .ln-stage,.band2{contain:paint}
+</style><style>
+/* V4.8 lighter line-up: no filters on moving images */
+.scene{filter:none!important}
+.cut{filter:none!important}
 </style></head>
 <body>
 <div id="bar"></div>
@@ -936,17 +940,17 @@ requestAnimationFrame(frame);
 <script>
 /* Product line-up: pinned, scroll-driven, real product photos */
 (function(){
-const IMG='https://treemled.co.kr/theme/led/html/image/',PAGE='https://treemled.co.kr/theme/led/html/';
+const IMG='led-showcase-assets/lineup/',PAGE='https://treemled.co.kr/theme/led/html/';
 const items=[
- {nav:'친환경 인증',prod:'친환경 인증 제품',eye:'공공 조달 · 친환경 인증 제품',name:'에너지를 아끼는 표준 전광판',desc:'한국산업환경기술원 친환경 인증을 획득한 에너지 절감형 LED 안내전광판입니다. 공공조달 친환경 정책에 부합합니다.',specs:['피치 1.25 ~ 2.5 mm','600 nit','3840 Hz','640 × 480 mm'],scene:'img_detail_green.png',cut:'product_items_1.png',url:'procurement/pro_01.php'},
- {nav:'모듈 통합형',prod:'모듈 통합형 제품',eye:'공공 조달 · 모듈 통합형 제품',name:'캐비닛 하나로 SMD · GOB · COB',desc:'하나의 캐비닛에서 세 가지 모듈을 모두 사용합니다. 16:9 표준 화면비로 최신 콘텐츠와 호환되고, 설치와 유지관리가 효율적입니다.',specs:['피치 1.25 ~ 2.5 mm','600 nit','3840 Hz','600 × 337.5 mm'],scene:'img_detail_integrated.png',cut:'led_integrated_smd.png',url:'procurement/pro_02.php'},
- {nav:'AVC 전문',prod:'AVC 특화 제품',eye:'공공 조달 · AVC 전문 제품',name:'방송과 촬영을 위한 7680Hz',desc:'800nit 고휘도와 7680Hz 초고주사율을 적용한 방송 특화 제품으로, 방송 및 영상 촬영 환경에 최적화했습니다.',specs:['피치 1.53 ~ 1.86 mm','800 nit','7680 Hz','640 × 480 mm'],scene:'img_detail_broadcast.png',cut:'led_broadcast_smd.png',url:'procurement/pro_03.php'},
- {nav:'기상전광판',prod:'기상 전광판',eye:'공공 조달 · 기상전광판',name:'악천후에도 선명한 정보',desc:'기후·환경 정보를 실시간으로 제공합니다. 강력한 방진·방수 설계로 미세먼지와 폭우 속에서도 가독성을 유지합니다.',specs:['피치 3.91 mm','5000 nit','3840 Hz','IP 65/65'],scene:'main_visual01.png',dim:.42,cut:'led_weather_smd.png',url:'procurement/pro_04.php'},
- {nav:'전자현수막',prod:'전자현수막',eye:'제품 안내 · 전자현수막',name:'현수막을 대신하는 디스플레이',desc:'다양한 장소와 환경에서 최적의 영상을 제공합니다. 설치 환경에 맞춘 화면 구현과 넓은 시야각, 풍부한 색감이 특징입니다.',specs:['피치 1.25 ~ 2.5 mm','SMD · GOB · COB','600 nit','3840 Hz'],scene:'product/pro_banner_2.png',cut:'product_items_2.png',url:'product/pro_02.php'},
- {nav:'옥외용 전광판',prod:'옥외용 전광판',eye:'제품 안내 · 옥외용 전광판',name:'전면 IP68의 야외 전광판',desc:'강력한 방진·방수 설계와 세밀한 색감 보정으로 실외에서도 고휘도의 균일한 화질을 제공합니다. 전·후면 시공과 A/S가 편리합니다.',specs:['피치 3.91 mm','5000 nit','3840 Hz','IP 68/66'],scene:'product/pro_outdoor_1.png',cut:'product_items_3.png',url:'product/pro_03.php'},
- {nav:'LED 렌탈',prod:'LED 렌탈 서비스',eye:'제품 안내 · LED 렌탈',name:'합리적 가격과 편리함을 함께',desc:'상담부터 설계, 설치, 운영까지 전문가가 관리합니다. 유연한 설치 각도와 전·후면 IP65의 견고한 내구성을 갖췄습니다.',specs:['+10˚ ~ -10˚ 설치','IP 65/65'],scene:'product/pro_rental_1.png',cut:'product/pro_rental_2.png',url:'product/pro_06.php'},
- {nav:'LED 브래킷',prod:'LED 브래킷',eye:'제품 안내 · LED 브래킷',name:'전용 브래킷으로 완성하는 설치',desc:'전문시험기관의 검증을 통과한 안내전광판 전용 브래킷입니다. TH·LS 두 규격에 맞춰 벽부형으로 설치합니다.',specs:['스틸','벽부형','3 kg','TBK-SG640480 · TBK-SG600337'],scene:'main_visual02.png',dim:.3,cut:'led_main_bracket.png',url:'product/pro_04.php'},
- {nav:'CMS 솔루션',prod:'CMS 솔루션',eye:'제품 안내 · TREEM CMS',name:'콘텐츠를 한 곳에서 관리',desc:'네트워크 기반으로 이미지, 동영상, 텍스트, WEB, 생방송을 통합 관리합니다. 날씨, 미세먼지, 뉴스 등 실시간 정보도 제공합니다.',specs:['GS 인증 1등급','화면 분할','일정 관리','Windows · Android'],scene:'main_visual03.png',dim:.32,cut:'product/cms_screen.png',url:'product/pro_05.php'}
+ {nav:'친환경 인증',prod:'친환경 인증 제품',eye:'공공 조달 · 친환경 인증 제품',name:'에너지를 아끼는 표준 전광판',desc:'한국산업환경기술원 친환경 인증을 획득한 에너지 절감형 LED 안내전광판입니다. 공공조달 친환경 정책에 부합합니다.',specs:['피치 1.25 ~ 2.5 mm','600 nit','3840 Hz','640 × 480 mm'],scene:'img_detail_green.jpg',cut:'product_items_1.png',url:'procurement/pro_01.php'},
+ {nav:'모듈 통합형',prod:'모듈 통합형 제품',eye:'공공 조달 · 모듈 통합형 제품',name:'캐비닛 하나로 SMD · GOB · COB',desc:'하나의 캐비닛에서 세 가지 모듈을 모두 사용합니다. 16:9 표준 화면비로 최신 콘텐츠와 호환되고, 설치와 유지관리가 효율적입니다.',specs:['피치 1.25 ~ 2.5 mm','600 nit','3840 Hz','600 × 337.5 mm'],scene:'img_detail_integrated.jpg',cut:'led_integrated_smd.png',url:'procurement/pro_02.php'},
+ {nav:'AVC 전문',prod:'AVC 특화 제품',eye:'공공 조달 · AVC 전문 제품',name:'방송과 촬영을 위한 7680Hz',desc:'800nit 고휘도와 7680Hz 초고주사율을 적용한 방송 특화 제품으로, 방송 및 영상 촬영 환경에 최적화했습니다.',specs:['피치 1.53 ~ 1.86 mm','800 nit','7680 Hz','640 × 480 mm'],scene:'img_detail_broadcast.jpg',cut:'led_broadcast_smd.png',url:'procurement/pro_03.php'},
+ {nav:'기상전광판',prod:'기상 전광판',eye:'공공 조달 · 기상전광판',name:'악천후에도 선명한 정보',desc:'기후·환경 정보를 실시간으로 제공합니다. 강력한 방진·방수 설계로 미세먼지와 폭우 속에서도 가독성을 유지합니다.',specs:['피치 3.91 mm','5000 nit','3840 Hz','IP 65/65'],scene:'main_visual01.jpg',dim:.42,cut:'led_weather_smd.png',url:'procurement/pro_04.php'},
+ {nav:'전자현수막',prod:'전자현수막',eye:'제품 안내 · 전자현수막',name:'현수막을 대신하는 디스플레이',desc:'다양한 장소와 환경에서 최적의 영상을 제공합니다. 설치 환경에 맞춘 화면 구현과 넓은 시야각, 풍부한 색감이 특징입니다.',specs:['피치 1.25 ~ 2.5 mm','SMD · GOB · COB','600 nit','3840 Hz'],scene:'product_pro_banner_2.jpg',cut:'product_items_2.png',url:'product/pro_02.php'},
+ {nav:'옥외용 전광판',prod:'옥외용 전광판',eye:'제품 안내 · 옥외용 전광판',name:'전면 IP68의 야외 전광판',desc:'강력한 방진·방수 설계와 세밀한 색감 보정으로 실외에서도 고휘도의 균일한 화질을 제공합니다. 전·후면 시공과 A/S가 편리합니다.',specs:['피치 3.91 mm','5000 nit','3840 Hz','IP 68/66'],scene:'product_pro_outdoor_1.jpg',cut:'product_items_3.png',url:'product/pro_03.php'},
+ {nav:'LED 렌탈',prod:'LED 렌탈 서비스',eye:'제품 안내 · LED 렌탈',name:'합리적 가격과 편리함을 함께',desc:'상담부터 설계, 설치, 운영까지 전문가가 관리합니다. 유연한 설치 각도와 전·후면 IP65의 견고한 내구성을 갖췄습니다.',specs:['+10˚ ~ -10˚ 설치','IP 65/65'],scene:'product_pro_rental_1.jpg',cut:'product_pro_rental_2.png',url:'product/pro_06.php'},
+ {nav:'LED 브래킷',prod:'LED 브래킷',eye:'제품 안내 · LED 브래킷',name:'전용 브래킷으로 완성하는 설치',desc:'전문시험기관의 검증을 통과한 안내전광판 전용 브래킷입니다. TH·LS 두 규격에 맞춰 벽부형으로 설치합니다.',specs:['스틸','벽부형','3 kg','TBK-SG640480 · TBK-SG600337'],scene:'main_visual02.jpg',dim:.3,cut:'led_main_bracket.png',url:'product/pro_04.php'},
+ {nav:'CMS 솔루션',prod:'CMS 솔루션',eye:'제품 안내 · TREEM CMS',name:'콘텐츠를 한 곳에서 관리',desc:'네트워크 기반으로 이미지, 동영상, 텍스트, WEB, 생방송을 통합 관리합니다. 날씨, 미세먼지, 뉴스 등 실시간 정보도 제공합니다.',specs:['GS 인증 1등급','화면 분할','일정 관리','Windows · Android'],scene:'main_visual03.jpg',dim:.32,cut:'product_cms_screen.png',url:'product/pro_05.php'}
 ];
 const section=document.getElementById('lineup'),stage=document.getElementById('lnStage');
 section.style.height=(items.length*90+10)+'vh';
@@ -961,7 +965,7 @@ lmeasure();addEventListener('load',lmeasure);addEventListener('resize',lmeasure)
 if(window.ResizeObserver){let lt=0;new ResizeObserver(()=>{clearTimeout(lt);lt=setTimeout(lmeasure,120)}).observe(document.body)}
 const range=()=>LM.r;
 btns.forEach((b,i)=>b.addEventListener('click',()=>scrollTo(0,LM.top+range()*(i/(items.length-1)))));
-const load=s=>{if(s.loaded)return;s.loaded=true;s.scene.style.backgroundImage=`url(${IMG+s.it.scene})`;if(s.it.dim)s.scene.style.filter=`brightness(${s.it.dim})`;s.cut.src=IMG+s.it.cut};
+const load=s=>{if(s.loaded)return;s.loaded=true;s.scene.style.backgroundImage=`url(${IMG+s.it.scene})`;s.scene.style.opacity=s.it.dim||.62;s.cut.src=IMG+s.it.cut};
 let q=0,raf=0,last=performance.now();
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function draw(now){
