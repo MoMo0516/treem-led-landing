@@ -827,12 +827,20 @@ const story=document.getElementById('story'),bar=document.getElementById('bar'),
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let target=0,sp=0;
 const headerEl=document.querySelector('header'),afterEl=document.getElementById('after');
-function readScroll(){const max=story.offsetHeight-innerHeight;target=max>0?clamp(scrollY/max):0;
-  headerEl.classList.toggle('solid',max>0&&scrollY>=afterEl.offsetTop-70);
-  const all=document.documentElement.scrollHeight-innerHeight;bar.style.transform=`scaleX(${all>0?clamp(scrollY/all):0})`}
+const MS={max:1,after:1e9,all:1};
+function measure(){MS.max=story.offsetHeight-innerHeight;MS.after=afterEl.offsetTop;MS.all=document.documentElement.scrollHeight-innerHeight;window.__pageMeasured=performance.now()}
+let solid=null;
+function readScroll(){const y=scrollY;target=MS.max>0?clamp(y/MS.max):0;
+  const s=MS.max>0&&y>=MS.after-70;if(s!==solid){solid=s;headerEl.classList.toggle('solid',s)}
+  bar.style.transform=`scaleX(${MS.all>0?clamp(y/MS.all):0})`}
+if(window.ResizeObserver){let rt=0;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>{measure();readScroll()},120)}).observe(document.body)}
+addEventListener('load',()=>{measure();readScroll()});
 addEventListener('scroll',readScroll,{passive:true});
 let pixelCap=LITE?1.5:1.75,perfT=0,perfN=0;
-function resize(){const w=innerWidth,h=innerHeight;renderer.setPixelRatio(Math.min(devicePixelRatio,pixelCap));renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();readScroll()}
+let lastW=0,lastH=0;
+function resize(){const w=innerWidth,h=innerHeight;
+  if(LITE&&w===lastW&&Math.abs(h-lastH)<200){measure();readScroll();return}
+  lastW=w;lastH=h;renderer.setPixelRatio(Math.min(devicePixelRatio,pixelCap));renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();measure();readScroll()}
 addEventListener('resize',resize);resize();
 
 const TX=-24,TY=WALL_CY+11.5,ZMIN=.5;
@@ -842,14 +850,14 @@ const KEYS=[[0,0],[.05,.11],[.40,.30],[.49,.312],[.60,.445],[.69,.54],[.86,.715]
 function timeline(s){for(let i=1;i<KEYS.length;i++){if(s<=KEYS[i][0]){const a=KEYS[i-1],b=KEYS[i];return mix(a[1],b[1],(s-a[0])/(b[0]-a[0]))}}return .845}
 function frame(){
   const dt=Math.min(clock.getDelta(),.1),t=clock.elapsedTime;
-  sp=reduce?target:sp+(target-sp)*(1-Math.exp(-dt*6.5));
+  sp=reduce?target:sp+(target-sp)*(1-Math.exp(-dt*(LITE?10:6.5)));
   /* lower render resolution on slow PCs */
   perfT+=dt;perfN++;
   if(perfN>=45){if(perfT/perfN>(LITE?.024:.03)&&pixelCap>1){pixelCap=Math.max(1,pixelCap-.25);renderer.setPixelRatio(Math.min(devicePixelRatio,pixelCap));renderer.setSize(innerWidth,innerHeight,false)}perfT=0;perfN=0}
   if(Math.abs(target-sp)<.00002)sp=target;
   /* nothing to draw once the film has scrolled away */
-  if(scrollY>story.offsetHeight+80){canvas.style.visibility='hidden';requestAnimationFrame(frame);return}
-  canvas.style.visibility='visible';
+  if(scrollY>MS.max+innerHeight+80){if(canvas.style.visibility!=='hidden')canvas.style.visibility='hidden';requestAnimationFrame(frame);return}
+  if(canvas.style.visibility!=='visible')canvas.style.visibility='visible';
   const p=timeline(sp);shared.uTime.value=t;
   updateCaps(p);
   const asp=camera.aspect,k=asp<1.5?Math.max(1,1.5/asp*.92):1;
@@ -911,9 +919,11 @@ function frame(){
     camera.lookAt(300+off,y,0);camera.updateProjectionMatrix();
     rim.color.setHex(0x7dffa0);rim.position.set(300-9,6,6);rim.intensity=1.5;key.intensity=1;
   }
-  renderer.render(scene,camera);
+  const still=Math.abs(target-sp)<.0005;
+  if(!(LITE&&still&&(skipFlip=!skipFlip)))renderer.render(scene,camera);
   requestAnimationFrame(frame);
 }
+let skipFlip=false;
 if(document.fonts&&document.fonts.load)Promise.all([document.fonts.load('800 196px Paperlogy','공간혁신'),document.fonts.load('700 62px Paperlogy','규격')]).then(()=>fontJobs.forEach(f=>f())).catch(()=>{});
 readScroll();sp=target;
 requestAnimationFrame(frame);
@@ -941,25 +951,30 @@ const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 stage.innerHTML=items.map(it=>`<article class="slide"><div class="scene"></div><div class="shade"></div><img class="cut" alt="${esc(it.nav)} 제품 이미지" decoding="async"><div class="txt"><div class="eyebrow">${esc(it.eye)}</div><h2><span class="lt">${esc(it.name)}</span><br>${esc(it.prod)}</h2><p>${esc(it.desc)}</p><div class="specs">${it.specs.map(s=>`<span>${esc(s)}</span>`).join('')}</div><a class="more" href="${PAGE+it.url}">상세 사양 보기</a></div></article>`).join('')+`<nav class="idx" aria-label="제품 바로가기">${items.map(it=>`<button type="button">${esc(it.nav)}</button>`).join('')}</nav>`;
 const slides=[...stage.querySelectorAll('.slide')].map((el,i)=>({el,scene:el.querySelector('.scene'),cut:el.querySelector('.cut'),txt:el.querySelector('.txt'),it:items[i],loaded:false}));
 const btns=[...stage.querySelectorAll('.idx button')];
-const range=()=>section.offsetHeight-innerHeight;
-btns.forEach((b,i)=>b.addEventListener('click',()=>scrollTo(0,section.offsetTop+range()*(i/(items.length-1)))));
+const LM={top:0,r:1};
+const lmeasure=()=>{LM.top=section.offsetTop;LM.r=Math.max(1,section.offsetHeight-innerHeight)};
+lmeasure();addEventListener('load',lmeasure);addEventListener('resize',lmeasure);
+if(window.ResizeObserver){let lt=0;new ResizeObserver(()=>{clearTimeout(lt);lt=setTimeout(lmeasure,120)}).observe(document.body)}
+const range=()=>LM.r;
+btns.forEach((b,i)=>b.addEventListener('click',()=>scrollTo(0,LM.top+range()*(i/(items.length-1)))));
 const load=s=>{if(s.loaded)return;s.loaded=true;s.scene.style.backgroundImage=`url(${IMG+s.it.scene})`;if(s.it.dim)s.scene.style.filter=`brightness(${s.it.dim})`;s.cut.src=IMG+s.it.cut};
 let q=0,raf=0,last=performance.now();
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function draw(now){
   const dt=Math.min((now-last)/1000,.1);last=now;
-  const top=section.getBoundingClientRect().top,r=range();
+  const top=LM.top-scrollY,r=range();
   const inView=top<innerHeight&&top>-r-innerHeight;
   const tgt=clamp(-top/r)*(items.length-1);
   q=reduce?tgt:q+(tgt-q)*(1-Math.exp(-dt*7));
-  if(inView){
+  const settled=Math.abs(tgt-q)<.0005&&!inView;
+  if(inView||!settled){
     const mob=innerWidth<=760,t=now/1000;
     slides.forEach((s,i)=>{
       const d=q-i,ad=Math.abs(d);
       if(ad<2.2)load(s);
       const o=ease(clamp((.62-ad)/.22));
-      s.el.style.opacity=o.toFixed(3);s.el.style.visibility=o<.004?'hidden':'visible';
-      s.el.style.pointerEvents=o>.5?'auto':'none';
+      const os=o.toFixed(3);
+      if(s.o!==os){s.o=os;s.el.style.opacity=os;s.el.style.visibility=o<.004?'hidden':'visible';s.el.style.pointerEvents=o>.5?'auto':'none'}
       if(o<.004)return;
       s.scene.style.transform=`scale(${(1.05+d*.05).toFixed(4)}) translateX(${(-d*2.2).toFixed(2)}%)`;
       const fl=reduce?0:Math.sin(t*.8+i)*.8;
@@ -967,7 +982,7 @@ function draw(now){
       s.cut.style.transform=`${base} translate3d(${(-d*30).toFixed(2)}vw,${fl.toFixed(2)}vh,${(-ad*260).toFixed(0)}px) rotateY(${(mob?-d*30:ry).toFixed(2)}deg)`;
       s.txt.style.transform=`translateY(${(d*-46).toFixed(1)}px)`;
     });
-    const cur=Math.round(q);btns.forEach((b,i)=>b.classList.toggle('on',i===cur));
+    const cur=Math.round(q);if(cur!==draw.cur){draw.cur=cur;btns.forEach((b,i)=>b.classList.toggle('on',i===cur))}
   }
   raf=requestAnimationFrame(draw);
 }
@@ -1031,12 +1046,12 @@ $('cForm').addEventListener('submit',e=>{e.preventDefault();calc()});
 const pb=$('cPresets');
 PRESETS.forEach(p=>{const b=document.createElement('button');b.type='button';b.textContent=p[0];b.addEventListener('click',()=>{cT.value=p[1];fillPitch(p[4]);cW.value=p[2];cH.value=p[3];cRW.value=cRH.value='rec';calc()});pb.append(b)});
 fillPitch('2.5');calc();
-addEventListener('resize',calc);
+let cw0=innerWidth;addEventListener('resize',()=>{if(innerWidth!==cw0){cw0=innerWidth;calc()}});
 })();
 </script>
 <script>
 /* floating contact: after the opening film, hidden over the contact footer */
-(function(){var f=document.getElementById('fab'),c=document.getElementById('contact');function u(){var r=c.getBoundingClientRect();f.classList.toggle('on',scrollY>innerHeight*.8&&r.top>innerHeight*.6)}addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u()})();
+(function(){var f=document.getElementById('fab'),c=document.getElementById('contact'),ct=0,on=null;function m(){ct=c.getBoundingClientRect().top+scrollY}function u(){var v=scrollY>innerHeight*.8&&ct-scrollY>innerHeight*.6;if(v!==on){on=v;f.classList.toggle('on',v)}}addEventListener('scroll',u,{passive:true});addEventListener('resize',function(){m();u()});addEventListener('load',function(){m();u()});if(window.ResizeObserver){new ResizeObserver(function(){m();u()}).observe(document.body)}m();u()})();
 </script>
 </body>
 </html>
