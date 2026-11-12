@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>트리엠 LED 디스플레이 | 랜딩 시안 V5.1</title>
+<meta name="description" content="트리엠 LED 디스플레이 랜딩 시안 V5.1. 실제 설치 현장 47곳, 시공 과정, 제품 라인업, 캐비닛 계산.">
+<meta name="keywords" content="안내전광판, LED안내전광판, LED전광판, LED렌탈, 전자현수막, 옥외용 전광판, 기상전광판, 조달 전광판">
+<link rel="canonical" href="https://momo0516.github.io/treem-led-landing/v5-1.html">
+<meta name="theme-color" content="#16386B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="(주)트리엠">
+<meta property="og:title" content="트리엠 LED 디스플레이 쇼케이스">
+<meta property="og:description" content="LED 안내전광판·전자현수막·옥외용 전광판. 40,000여 수요기관이 선택한 트리엠 LED 디스플레이.">
+<meta property="og:image" content="https://momo0516.github.io/treem-led-landing/led-showcase-assets/cover-blue.jpg">
+<meta property="og:url" content="https://momo0516.github.io/treem-led-landing/v5-1.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="led-showcase-assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="led-showcase-assets/favicon-180.png">
+<link rel="preload" href="led-showcase-fonts/Pretendard-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="led-showcase-fonts/Pretendard-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Pretendard;src:url(led-showcase-fonts/Pretendard-Light.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:Pretendard;src:url(led-showcase-fonts/Pretendard-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Pretendard;src:url(led-showcase-fonts/Pretendard-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Pretendard;src:url(led-showcase-fonts/Pretendard-Bold.woff2) format("woff2");font-weight:600 800;font-display:swap}
+:root{--bg:#fff;--paper:#f4f3ef;--ink:#1d242d;--ink2:#5d6670;--line:#1d242d;--soft:rgba(29,36,45,.14);--navy:#16386B;--green:#2E9D43;--hh:60px;--pad:clamp(16px,1.6vw,24px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);overflow-x:clip;max-width:100%}
+body{font-family:Pretendard,"Malgun Gothic",system-ui,sans-serif;font-weight:400;color:var(--ink);background:var(--bg);word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:clip;max-width:100%;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,input,select{font:inherit;color:inherit}
+section,[id]{scroll-margin-top:var(--hh)}
+.ar{width:1.6em;height:1.6em;flex:none;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+a:hover .ar,button:hover .ar{transform:translate(3px,-3px)}
+.eyebrow{font-size:13px;letter-spacing:.02em;color:var(--ink2);font-weight:500}
+.display{font-weight:300;letter-spacing:-.045em;line-height:1.04;font-size:clamp(40px,6.2vw,104px)}
+.h2{font-weight:300;letter-spacing:-.04em;line-height:1.08;font-size:clamp(32px,4.4vw,72px)}
+.lead{font-size:clamp(15px,1.15vw,18px);color:var(--ink2);max-width:36em}
+.link{display:inline-flex;align-items:center;gap:14px;font-size:14px;font-weight:500;letter-spacing:.02em;line-height:1.25}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:38px;padding:0 20px;border:1px solid var(--ink);border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.02em;white-space:nowrap;transition:background .25s,color .25s}
+.pill:hover{background:var(--ink);color:#fff}
+.pill.solid{background:var(--navy);border-color:var(--navy);color:#fff}
+.pill.solid:hover{background:#0f2a52}
+.pill.light{border-color:#fff;color:#fff}
+.pill.light:hover{background:#fff;color:var(--ink)}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;height:var(--hh);z-index:50;display:flex;align-items:center;gap:22px;padding:0 var(--pad);background:rgba(255,255,255,.96);border-bottom:1px solid var(--soft)}
+.brand img{height:24px;width:auto}
+header nav{margin-left:auto;display:flex;gap:26px;font-size:14px}
+header nav a{position:relative;padding:4px 0}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .3s}
+header nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.tel{font-size:14px;font-weight:600;letter-spacing:.01em}
+.burger{display:none;margin-left:auto;width:40px;height:40px;border:0;background:none;cursor:pointer;position:relative}
+.burger i{position:absolute;left:9px;right:9px;height:1px;background:var(--ink);transition:transform .3s,opacity .3s}
+.burger i:nth-child(1){top:14px}.burger i:nth-child(2){top:20px}.burger i:nth-child(3){top:26px}
+.menu-open .burger i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-open .burger i:nth-child(2){opacity:0}
+.menu-open .burger i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mmenu{position:fixed;inset:var(--hh) 0 0;z-index:49;background:#fff;display:none;flex-direction:column;padding:8px var(--pad) 32px}
+.mmenu a{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--soft);font-size:26px;font-weight:300;letter-spacing:-.03em}
+.mmenu .row{display:flex;gap:10px;margin-top:24px}
+.menu-open .mmenu{display:flex}
+
+/* hero: the LED wall itself is the hero image, cut by the page grid */
+.hero{position:relative;height:calc(100svh - var(--hh));min-height:520px;margin-top:var(--hh);overflow:hidden;background:#06090e;color:#fff}
+#wall{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-logo{position:absolute;left:70%;top:33.4%;width:min(30vw,520px);transform:translate(-50%,-50%) scale(1.06);opacity:0;filter:drop-shadow(0 0 22px rgba(140,210,255,.55));transition:opacity 1.4s ease,transform 2.2s cubic-bezier(.2,.7,.2,1)}
+.hero.lit .hero-logo{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(7,1fr);pointer-events:none}
+.tiles i{position:relative;background:#0b0e13;box-shadow:inset 0 0 0 .5px rgba(255,255,255,.08)}
+.tiles i::after{content:"";position:absolute;inset:0;background:#e3f2ff;opacity:0}
+.hero.go .tiles i{animation:tOff .62s both cubic-bezier(.3,.6,.2,1);animation-delay:var(--d)}
+.hero.go .tiles i::after{animation:tFlash .62s both;animation-delay:var(--d)}
+@keyframes tOff{0%,32%{opacity:1}100%{opacity:0}}
+@keyframes tFlash{0%{opacity:0}16%{opacity:.8}100%{opacity:0}}
+.hgrid{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(255,255,255,.5) 1px,transparent 1px) 0 0/20% 100%,linear-gradient(to bottom,rgba(255,255,255,.5) 1px,transparent 1px) 0 0/100% 33.3334%}
+.hcells{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(3,1fr)}
+.hcell{background:#fff;color:var(--ink);padding:var(--pad);display:flex;flex-direction:column}
+.c-title{grid-column:1/3;grid-row:2;justify-content:flex-end;gap:12px;margin:1px 0 0 0}
+.c-title h1{font-weight:300;letter-spacing:-.05em;line-height:1;font-size:min(5.1vw,9.6vh)}
+.c-title p{font-size:14px;color:var(--ink2)}
+.c-go{grid-column:4;grid-row:3;justify-content:flex-start;margin:1px 0 0 1px}
+.c-cta{grid-column:1;grid-row:3;background:var(--navy);color:#fff;justify-content:flex-end;margin:1px 0 0 0}
+.c-cap{grid-column:2/4;grid-row:3;align-self:end;padding:var(--pad);font-size:13px;color:rgba(255,255,255,.88);text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.c-cap b{display:block;font-size:17px;font-weight:500;color:#fff;margin-bottom:4px}
+.hcell .link{font-size:15px}
+.hero .hcell,.hero .c-cap{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.hero.ui .hcell,.hero.ui .c-cap{opacity:1;transform:none}
+.hero.ui .c-go{transition-delay:.15s}.hero.ui .c-cta{transition-delay:.25s}.hero.ui .c-cap{transition-delay:.9s}
+
+/* generic blocks */
+.sec{position:relative;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:repeat(5,1fr);padding:clamp(56px,7vw,112px) var(--pad) clamp(28px,3vw,48px);gap:0 var(--pad)}
+.sec-head .eyebrow{grid-column:1;padding-top:.8em}
+.sec-head .h2{grid-column:2/5}
+.sec-head .lead{grid-column:2/5;margin-top:18px}
+.sec-head .side{grid-column:5;align-self:end;justify-self:start}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.g5>*{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.g5>*:nth-child(5n){border-right:0}
+.rv{opacity:1}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rule{transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.2,.7,.1,1)}
+.js .rule.in{transform:scaleX(1)}
+.rule{height:1px;background:var(--line)}
+
+/* 01 company */
+.stat{padding:var(--pad);min-height:clamp(160px,15vw,230px);display:flex;flex-direction:column;justify-content:space-between}
+.stat b{font-weight:300;letter-spacing:-.04em;font-size:clamp(34px,3.6vw,58px);line-height:1}
+.stat b small{font-size:.42em;letter-spacing:-.01em;margin-left:4px}
+.stat span{font-size:14px;color:var(--ink2)}
+.quote{padding:var(--pad);min-height:clamp(200px,17vw,260px);display:flex;flex-direction:column;gap:14px}
+.quote h3{font-size:clamp(19px,1.5vw,24px);font-weight:400;letter-spacing:-.03em;line-height:1.3}
+.quote p{font-size:14px;color:var(--ink2)}
+.quote .n{font-size:12px;color:var(--ink2)}
+.certs{padding:clamp(28px,3vw,44px) var(--pad);border-bottom:1px solid var(--line);display:flex;justify-content:center}
+.certs img{width:min(100%,1100px);height:auto;mix-blend-mode:multiply}
+
+/* 02 products */
+.prod{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(3,auto) auto;border-top:1px solid var(--line)}
+.pcell{grid-column:span 1;text-align:left;background:none;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--pad);min-height:clamp(170px,14.5vw,240px);display:flex;flex-direction:column;gap:6px;cursor:pointer;position:relative;transition:background .3s}
+.pcell .no{font-size:12px;color:var(--ink2)}
+.pcell b{margin-top:auto;font-size:clamp(19px,1.55vw,25px);font-weight:400;letter-spacing:-.03em;line-height:1.25}
+.pcell small{font-size:13px;color:var(--ink2)}
+.pcell:hover{background:var(--paper)}
+.pcell.on{background:var(--ink);color:#fff}
+.pcell.on .no,.pcell.on small{color:rgba(255,255,255,.7)}
+.ppanel{grid-column:4/6;grid-row:1/4;position:relative;overflow:hidden;background:#0b0e13;color:#fff;border-bottom:1px solid var(--line);min-height:520px}
+.pp-bg{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.04);transition:transform 1.6s cubic-bezier(.2,.7,.2,1),opacity .6s}
+.pp-shade{position:absolute;inset:0;background:linear-gradient(rgba(6,9,14,var(--dim,0)),rgba(6,9,14,var(--dim,0))),linear-gradient(180deg,rgba(6,9,14,0) 0%,rgba(6,9,14,.12) 42%,rgba(6,9,14,.9) 100%)}
+.ppanel:not(.cutout) .pp-cut{display:none}
+.pp-cut{position:absolute;right:6%;top:7%;width:min(56%,380px);height:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,.45));transition:opacity .6s,transform 1s cubic-bezier(.2,.7,.2,1)}
+.pp-txt{position:absolute;left:0;right:0;bottom:0;padding:clamp(20px,2vw,32px);transition:opacity .6s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.pp-txt .eyebrow{color:rgba(255,255,255,.75)}
+.pp-txt h3{font-size:clamp(26px,2.4vw,40px);font-weight:300;letter-spacing:-.04em;line-height:1.12;margin:8px 0 10px}
+.pp-txt p{font-size:14.5px;color:rgba(255,255,255,.82);max-width:34em}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 18px}
+.chips span{font-size:12.5px;padding:4px 11px;border:1px solid rgba(255,255,255,.45);border-radius:999px}
+.ppanel.swap .pp-bg{opacity:.2;transform:scale(1.1)}
+.ppanel.swap .pp-cut{opacity:0;transform:translateY(16px)}
+.ppanel.swap .pp-txt{opacity:0;transform:translateY(12px)}
+.pall{grid-column:1/4;background:var(--navy);color:#fff;padding:var(--pad);min-height:96px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.pall .link{font-size:15px}
+.pnote{grid-column:4/6;padding:var(--pad);font-size:13px;color:var(--ink2);border-bottom:1px solid var(--line);display:flex;align-items:center}
+
+/* full-bleed band */
+.band{position:relative;height:min(92vh,880px);min-height:480px;overflow:hidden;color:#fff;border-top:1px solid var(--line)}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 50%,rgba(4,10,30,.38),rgba(4,10,30,.06))}
+.band .split{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(255,255,255,.55);z-index:1}
+.band-c{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:0 var(--pad)}
+.band-c .display{font-size:clamp(40px,6vw,96px);text-shadow:0 2px 30px rgba(0,10,40,.35)}
+.band-c p{font-size:15px;opacity:.9}
+.band-go{position:absolute;left:0;bottom:0;z-index:2;background:#fff;color:var(--ink);width:20%;min-width:220px;padding:var(--pad);min-height:120px;display:flex;align-items:flex-end}
+
+.uses{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.use{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--pad);display:flex;flex-direction:column;gap:16px}
+.use:nth-child(3n){border-right:0}
+.use .ph{aspect-ratio:16/10;overflow:hidden;background:var(--paper)}
+.use .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.use:hover .ph img{transform:scale(1.04)}
+.use h3{font-size:clamp(20px,1.6vw,26px);font-weight:400;letter-spacing:-.03em;line-height:1.25}
+.use h3 small{display:block;font-size:13px;color:var(--ink2);letter-spacing:0;margin-bottom:6px;font-weight:500}
+.use ul{list-style:none;font-size:14px;color:var(--ink2);display:grid;gap:6px}
+.use li{padding-left:14px;position:relative}
+.use li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--ink)}
+.use .note{font-size:12px;color:var(--ink2)}
+
+/* 03 pixels */
+.pix{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.px{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--pad);display:flex;flex-direction:column;gap:12px}
+.px:nth-child(3n){border-right:0}
+.px canvas{width:100%;aspect-ratio:1/1;display:block;background:#07090c;margin-bottom:8px}
+.px h3{font-size:clamp(44px,4.6vw,76px);font-weight:300;letter-spacing:-.05em;line-height:1}
+.px p{font-size:14.5px;color:var(--ink2)}
+.px .chips span{border-color:var(--soft);color:var(--ink)}
+
+/* 04 spec */
+.twin{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+.twin>div{padding:var(--pad);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-height:clamp(220px,20vw,320px)}
+.twin>div+div{border-left:1px solid var(--line)}
+.twin .eyebrow{color:var(--ink2)}
+.twin b{font-size:clamp(44px,5.6vw,96px);font-weight:300;letter-spacing:-.05em;line-height:1;margin-top:auto}
+.twin b small{font-size:.32em;letter-spacing:0;margin-left:6px}
+.twin span{font-size:15px;color:var(--ink2)}
+.spec-box{padding:clamp(32px,3.5vw,56px) var(--pad);border-bottom:1px solid var(--line)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tabs button{height:36px;padding:0 18px;border:1px solid var(--ink);border-radius:999px;background:none;cursor:pointer;font-size:13.5px;font-weight:500}
+.tabs button.on{background:var(--ink);color:#fff}
+.spec-desc{font-size:15px;color:var(--ink2);margin-bottom:20px;max-width:56em}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--line)}
+.groups{display:flex;min-width:max-content}
+.grp h4{font-size:13px;font-weight:600;padding:12px 12px 10px;border-bottom:1px solid var(--line);border-left:1px solid var(--soft)}
+.grp:first-child h4{border-left:0}
+table.spec{border-collapse:collapse;font-size:13px}
+table.spec th,table.spec td{padding:9px 12px;border-bottom:1px solid var(--soft);border-left:1px solid var(--soft);text-align:left;white-space:nowrap;font-weight:400}
+table.spec th{font-weight:600;background:var(--paper)}
+table.spec .k{border-left:0;color:var(--ink2);position:sticky;left:0;background:#fff;z-index:1}
+table.spec th.k{background:var(--paper)}
+.spec-note{font-size:12.5px;color:var(--ink2);margin-top:14px}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.badges>div{padding:var(--pad);display:flex;align-items:center;gap:14px;font-size:14px;border-right:1px solid var(--line)}
+.badges>div:last-child{border-right:0}
+.badges img{width:52px;height:52px}
+.badges .bt{width:52px;height:52px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:300;flex:none}
+
+/* 05 calculator */
+.calc{display:grid;grid-template-columns:2fr 3fr;border-top:1px solid var(--line)}
+.calc form{padding:var(--pad);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:22px}
+.field label,.field>span{display:block;font-size:12.5px;color:var(--ink2);margin-bottom:6px;font-weight:500}
+.field.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.field input,.field select{width:100%;height:46px;border:0;border-bottom:1px solid var(--ink);background:transparent;font-size:17px;border-radius:0;outline:none;-webkit-appearance:none;appearance:none}
+.field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231d242d'/%3E%3C/svg%3E") right 4px center no-repeat;padding-right:24px;font-size:15px}
+.field input:focus,.field select:focus{border-bottom-color:var(--navy);box-shadow:0 1px 0 var(--navy)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.presets button{height:32px;padding:0 14px;border:1px solid var(--soft);border-radius:999px;background:none;font-size:12.5px;cursor:pointer}
+.presets button:hover{border-color:var(--ink)}
+.calc-err{color:#c0392b;font-size:13px;min-height:1em}
+.calc-out{border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+.prev-box{padding:var(--pad);border-bottom:1px solid var(--line);min-height:240px;display:flex;align-items:center;justify-content:center;background:var(--paper)}
+.wall-prev{display:grid;gap:1px;background:#0b0e13;padding:1px;max-width:100%}
+.wall-prev i{background:linear-gradient(135deg,#1e4f97,#16386B 60%,#2E9D43 140%)}
+.results{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.results>div{padding:var(--pad);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.results>div:last-child{border-right:0}
+.results b{font-size:clamp(24px,2.3vw,38px);font-weight:300;letter-spacing:-.03em;line-height:1.1}
+.results span{font-size:12.5px;color:var(--ink2)}
+.ctbl{width:100%;border-collapse:collapse;font-size:14px}
+.ctbl th,.ctbl td{padding:10px var(--pad);border-bottom:1px solid var(--soft);text-align:left;font-weight:400}
+.ctbl th{color:var(--ink2);width:30%;font-size:13px}
+.rec{padding:16px var(--pad);font-size:14px;line-height:1.7;border-bottom:1px solid var(--soft)}
+.rec strong{display:block;font-size:12.5px;color:var(--ink2);font-weight:500;margin-bottom:2px}
+.rec b{color:var(--navy);font-weight:600}
+.calc-notes{list-style:none;padding:14px var(--pad) 18px;font-size:12.5px;color:var(--ink2);display:grid;gap:4px}
+.calc-notes a{text-decoration:underline}
+
+/* 06 quality */
+.tests{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.tests>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--pad);min-height:clamp(120px,10vw,170px);display:flex;flex-direction:column;justify-content:space-between;font-size:clamp(15px,1.15vw,18px);letter-spacing:-.02em;transition:background .3s}
+.tests>div:nth-child(4n){border-right:0}
+.tests>div:hover{background:var(--paper)}
+.tests b{font-size:12px;font-weight:400;color:var(--ink2);letter-spacing:0}
+
+/* 07 cases */
+.case-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 var(--pad) 18px;flex-wrap:wrap}
+.case-top .tabs{margin:0}
+.case-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.case-grid figure{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--pad);display:flex;flex-direction:column;gap:12px}
+.case-grid figure:nth-child(4n){border-right:0}
+.case-grid .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper)}
+.case-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.case-grid figure:hover img{transform:scale(1.05)}
+.case-grid .no{font-size:12px;color:var(--ink2)}
+.case-grid figcaption{font-size:15px;letter-spacing:-.02em;line-height:1.35}
+.case-grid figcaption span{display:block;font-size:12.5px;color:var(--ink2);margin-top:4px;letter-spacing:0}
+
+.case-grid .ph{display:block;width:100%;border:0;padding:0;cursor:zoom-in;background:var(--paper)}
+.tabs button small{font-size:11px;opacity:.6;margin-left:2px}
+.more-row{display:flex;justify-content:center;padding:28px var(--pad) 8px}
+.more-row .pill{height:44px;padding:0 28px;background:none;cursor:pointer}
+.more-row .pill[hidden]{display:none}
+
+/* company feature photo */
+.feat{display:grid;grid-template-columns:3fr 2fr;border-bottom:1px solid var(--line)}
+.feat-ph{border-right:1px solid var(--line);overflow:hidden;background:var(--paper);aspect-ratio:3/2}
+.feat-ph img{width:100%;height:100%;object-fit:cover}
+.feat-tx{padding:clamp(24px,3vw,48px) var(--pad);display:flex;flex-direction:column;gap:16px;justify-content:flex-end}
+.feat-tx h3{font-size:clamp(24px,2.3vw,38px);font-weight:300;letter-spacing:-.04em;line-height:1.2}
+.feat-tx p{font-size:15px;color:var(--ink2)}
+.feat-tx .cap{font-size:12.5px;padding-top:12px;border-top:1px solid var(--soft)}
+.band-cap{position:absolute;right:var(--pad);bottom:var(--pad);z-index:2;font-size:12.5px;color:rgba(255,255,255,.88);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+
+/* 07 build steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.steps figure{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--pad);display:flex;flex-direction:column;gap:16px}
+.steps figure:last-child{border-right:0}
+.steps .ph{aspect-ratio:4/5;overflow:hidden;background:var(--paper)}
+.steps img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.steps figure:hover img{transform:scale(1.04)}
+.steps b{font-size:12px;font-weight:400;color:var(--ink2)}
+.steps h3{font-size:clamp(20px,1.7vw,28px);font-weight:400;letter-spacing:-.03em;margin:4px 0 6px}
+.steps p{font-size:14px;color:var(--ink2)}
+
+/* lightbox */
+.lb{border:0;padding:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:rgba(8,11,16,.94);color:#fff}
+.lb::backdrop{background:rgba(8,11,16,.6)}
+.lb[open]{display:flex;align-items:center;justify-content:center}
+.lb figure{max-width:min(92vw,1600px);display:flex;flex-direction:column;gap:14px}
+.lb img{max-width:100%;max-height:78dvh;object-fit:contain;margin:0 auto}
+.lb figcaption{font-size:15px;color:rgba(255,255,255,.85)}
+.lb figcaption b{color:#fff;font-weight:500;margin-right:6px}
+.lb figcaption span{display:block;font-size:13px;color:rgba(255,255,255,.65);margin-top:4px}
+.lb button{position:absolute;border:0;background:none;color:#fff;cursor:pointer;font:300 44px/1 Pretendard,sans-serif;width:56px;height:56px}
+.lb-x{top:10px;right:10px}
+.lb-nav.prev{left:6px;top:50%;transform:translateY(-50%)}
+.lb-nav.next{right:6px;top:50%;transform:translateY(-50%)}
+
+/* 09 film */
+.player{position:relative;aspect-ratio:16/9;max-height:86vh;width:100%;background:#0b0e13 center/cover no-repeat;overflow:hidden;border-top:1px solid var(--line)}
+.player button{position:absolute;inset:0;width:100%;border:0;background:rgba(5,10,25,.18);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.player button span{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;background:#fff;color:var(--ink);font-size:15px;font-weight:500;transition:transform .3s}
+.player button:hover span{transform:scale(1.05)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* contact / footer */
+.foot{border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:repeat(5,1fr);gap:0 var(--pad);padding:clamp(56px,7vw,112px) var(--pad) clamp(40px,4vw,64px)}
+.foot-top .h2{grid-column:1/4}
+.foot-top .cta{grid-column:1/4;display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.foot-top .cta .pill{height:46px;padding:0 26px;font-size:14px}
+.foot-top .side{grid-column:4/6;align-self:end;font-size:14px;color:var(--ink2)}
+.foot-top .side b{display:block;font-size:clamp(30px,2.8vw,46px);font-weight:300;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
+.offices{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.offices>div{padding:var(--pad);border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink2);display:flex;flex-direction:column;gap:6px;min-height:150px}
+.offices>div:last-child{border-right:0}
+.offices b{color:var(--ink);font-size:15px;font-weight:500}
+.foot-bot{display:grid;grid-template-columns:repeat(5,1fr);gap:0 var(--pad);padding:clamp(40px,5vw,80px) var(--pad) 28px;align-items:end}
+.foot-bot .mark{grid-column:1/4}
+.foot-bot .mark img{width:min(100%,660px);height:auto}
+.foot-bot .mottos{grid-column:4;font-size:13px;color:var(--ink2);line-height:1.7}
+.foot-bot .copy{grid-column:5;font-size:12.5px;color:var(--ink2);line-height:1.7}
+
+@media (max-width:1100px){
+  header nav{gap:18px;font-size:13px}
+  .tel{display:none}
+}
+@media (max-width:900px){
+  :root{--hh:56px}
+  header nav,header .pill{display:none}
+  .burger{display:block}
+  .hgrid{background-size:50% 100%,100% 25%}
+  .hcells{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,1fr)}
+  .c-title{grid-column:1/3;grid-row:3}
+  .c-title h1{font-size:min(11vw,7.4vh)}
+  .c-go{grid-column:2;grid-row:4}
+  .c-cta{grid-column:1;grid-row:4}
+  .c-cap{display:none}
+  .tiles{grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(14,1fr)}
+  .hero-logo{left:50%;top:25%;width:min(64vw,420px)}
+  .sec-head{grid-template-columns:1fr;gap:10px}
+  .sec-head .eyebrow,.sec-head .h2,.sec-head .lead,.sec-head .side{grid-column:1}
+  .sec-head .side{margin-top:10px}
+  .g5{grid-template-columns:repeat(2,1fr)}
+  .g5>*{border-right:1px solid var(--line)!important}
+  .g5>*:nth-child(2n){border-right:0!important}
+  .g5 .stat:last-child,.g5 .quote:last-child{grid-column:1/3;border-right:0!important}
+  .prod{grid-template-columns:repeat(3,1fr);grid-template-rows:none}
+  .pcell{min-height:92px;padding:12px}
+  .pcell:nth-child(3n){border-right:0}
+  .pcell b{font-size:15px}
+  .pcell small{display:none}
+  .ppanel{grid-column:1/4;grid-row:auto;min-height:0;aspect-ratio:4/5}
+  .pp-cut{width:52%;right:5%;top:5%}
+  .pall{grid-column:1/4}
+  .pnote{grid-column:1/4}
+  .band-go{width:auto;min-width:0;right:auto;min-height:0}
+  .band .split{display:none}
+  .uses{grid-template-columns:1fr}
+  .use{border-right:0}
+  .pix{grid-template-columns:1fr}
+  .px{border-right:0}
+  .px canvas{aspect-ratio:16/10}
+  .twin{grid-template-columns:1fr}
+  .twin>div+div{border-left:0}
+  .badges{grid-template-columns:repeat(2,1fr)}
+  .badges>div:nth-child(2){border-right:0}
+  .badges>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .calc{grid-template-columns:minmax(0,1fr)}
+  .calc form{border-right:0}
+  .results{grid-template-columns:repeat(2,1fr)}
+  .results>div:nth-child(2){border-right:0}
+  .results>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .tests{grid-template-columns:repeat(2,1fr)}
+  .tests>div:nth-child(2n){border-right:0}
+  .feat{grid-template-columns:1fr}
+  .feat-ph{border-right:0;border-bottom:1px solid var(--line)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .steps figure:nth-child(2n){border-right:0}
+  .steps figure{padding:12px}
+  .steps .ph{aspect-ratio:1/1}
+  .steps p{font-size:13px}
+  .band-cap{left:var(--pad);right:auto;bottom:auto;top:var(--pad)}
+  .lb-nav{display:none}
+  .case-grid{grid-template-columns:repeat(2,1fr)}
+  .case-grid figure:nth-child(2n){border-right:0}
+  .case-grid figure{padding:10px}
+  .case-grid figcaption{font-size:13.5px}
+  .foot-top{grid-template-columns:1fr}
+  .foot-top .h2,.foot-top .cta,.foot-top .side{grid-column:1}
+  .foot-top .side{margin-top:28px}
+  .offices{grid-template-columns:1fr}
+  .offices>div{border-right:0;min-height:0}
+  .foot-bot{grid-template-columns:1fr;gap:18px}
+  .foot-bot .mark,.foot-bot .mottos,.foot-bot .copy{grid-column:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .tiles{display:none}
+  .js .rv,.js .rule,.hero .hcell,.hero .c-cap,.hero-logo{transition:none!important}
+}
+@media (pointer:coarse){
+  .hero-logo{filter:none}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<header>
+  <a class="brand" href="#top" aria-label="(주)트리엠 처음으로"><img src="led-showcase-assets/logo-color.png" alt="TREEM" width="85" height="24"></a>
+  <a class="pill" href="https://treemled.co.kr/theme/led/html/formmail/inquiry.php">상담 · 견적 문의</a>
+  <nav aria-label="주요 메뉴">
+    <a href="#company">회사</a><a href="#products">제품</a><a href="#pixel">기술</a><a href="#spec">규격</a><a href="#calc">계산기</a><a href="#build">시공</a><a href="#cases">사례</a><a href="#contact">문의</a>
+  </nav>
+  <a class="tel" href="tel:1577-2552">1577-2552</a>
+  <button class="burger" type="button" aria-label="메뉴 열기" aria-expanded="false" id="burger"><i></i><i></i><i></i></button>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#company">회사 소개 <span>01</span></a><a href="#products">제품 라인업 <span>02</span></a><a href="#pixel">픽셀 기술 <span>03</span></a><a href="#spec">제품 규격 <span>04</span></a><a href="#calc">캐비닛 계산 <span>05</span></a><a href="#quality">품질 검증 <span>06</span></a><a href="#build">시공 과정 <span>07</span></a><a href="#cases">설치 사례 <span>08</span></a><a href="#contact">문의 <span>09</span></a>
+  <div class="row"><a class="pill solid" href="https://treemled.co.kr/theme/led/html/formmail/inquiry.php">상담 · 견적 문의</a><a class="pill" href="tel:1577-2552">1577-2552</a></div>
+</div>
+
+<main>
+<section class="hero" id="top" aria-label="트리엠 LED 디스플레이">
+  <canvas id="wall" aria-hidden="true"></canvas>
+  <img class="hero-logo" src="led-showcase-assets/logo-white.png" alt="" aria-hidden="true">
+  <div class="tiles" id="tiles" aria-hidden="true"></div>
+  <div class="hgrid" aria-hidden="true"></div>
+  <div class="hcells">
+    <div class="hcell c-title">
+      <h1>트리엠<br>LED 디스플레이</h1>
+      <p>대한민국 LED 표준기업 (주)트리엠 · 설계부터 시공, 유지보수까지</p>
+    </div>
+    <a class="hcell c-cta" href="https://treemled.co.kr/theme/led/html/formmail/inquiry.php"><span class="link">상담 · 견적<br>문의하기 <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></span></a>
+    <div class="c-cap"><b>트리엠 LED 안내전광판</b>P2.5mm · 6400 × 3360 mm · 284.6인치 · 캐비닛 70개</div>
+    <a class="hcell c-go" href="#products"><span class="link">제품<br>둘러보기 <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></span></a>
+  </div>
+</section>
+
+<section class="sec" id="company" aria-label="회사 소개">
+  <div class="sec-head">
+    <p class="eyebrow rv">01 · 회사</p>
+    <h2 class="h2 rv">공간을 밝히는<br>대한민국 LED 표준기업</h2>
+    <p class="lead rv">(주)트리엠은 40,000여 수요기관과의 풍부한 공공조달사업 경험과 전문 기술을 보유한 검증된 회사로서, 설계부터 시공 및 유지보수까지 최상의 품질을 약속합니다.</p>
+  </div>
+  <div class="g5">
+    <div class="stat rv"><b>40,000<small>+</small></b><span>트리엠을 선택한 수요기관</span></div>
+    <div class="stat rv"><b>16<small>가지</small></b><span>출고 전 품질 테스트</span></div>
+    <div class="stat rv"><b>2<small>년</small></b><span>품질보증기간</span></div>
+    <div class="stat rv"><b>A<small>등급</small></b><span>품질보증조달물품</span></div>
+    <div class="stat rv"><b>1<small>등급</small></b><span>CMS 솔루션 GS 인증</span></div>
+  </div>
+  <div class="g5" style="border-top:0">
+    <div class="quote rv"><span class="n">01</span><h3>차별화된 제품</h3><p>고객 요구와 현장에 부응하는 다양하고 내구성 있는 고품질 제품군</p></div>
+    <div class="quote rv"><span class="n">02</span><h3>표준화된 공정</h3><p>상담 · 실사 · 설계 · 구축의 검증된 시스템 공정</p></div>
+    <div class="quote rv"><span class="n">03</span><h3>합리적인 가격</h3><p>합리적인 구축 비용으로 예산 절감</p></div>
+    <div class="quote rv"><span class="n">04</span><h3>현장 친화 디자인</h3><p>현장 친화 디자인 및 경량화 구현</p></div>
+    <div class="quote rv"><span class="n">05</span><h3>신뢰의 계약사</h3><p>신속하고 믿을 수 있는 유지보수</p></div>
+  </div>
+  <div class="feat">
+    <figure class="feat-ph rv"><img src="led-showcase-assets/site/img-239-2.jpg" alt="강당 LED 전광판에 트리엠 로고가 켜진 모습" loading="lazy" width="1920" height="1280"></figure>
+    <div class="feat-tx rv">
+      <p class="eyebrow">현장에서</p>
+      <h3>설계부터 시공, 유지보수까지<br>트리엠이 직접 책임집니다</h3>
+      <p>상담과 실사로 크기를 정하고, 프레임과 캐비닛을 설치한 뒤 화면을 맞춰 넘겨드립니다. 아래 사진은 모두 실제 납품 현장입니다.</p>
+      <p class="cap">한국폴리텍대학 신기술연구원 강당 · 5760 × 2880 mm · GOB P1.53 · 캐비닛 54개</p>
+      <a class="link" href="#cases">설치 사례 보기 <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></a>
+    </div>
+  </div>
+  <div class="certs rv"><img src="led-showcase-assets/certs.jpg" alt="품질보증조달물품 A등급, 친환경, 서비스품질 우수기업인증, GS 1등급 인증, KC인증, DUNS, ISO9001·ISO14001, G-PASS" loading="lazy" width="1452" height="198"></div>
+</section>
+
+<section class="sec" id="products" aria-label="제품 라인업">
+  <div class="sec-head">
+    <p class="eyebrow rv">02 · 제품</p>
+    <h2 class="h2 rv">제품 라인업</h2>
+    <p class="lead rv">공공 조달 등록 제품부터 전자현수막, 옥외용 전광판, 렌탈과 CMS까지. 제품을 고르면 오른쪽에서 자세히 보여드립니다.</p>
+  </div>
+  <div class="prod" id="prod"></div>
+</section>
+
+<section class="band" aria-label="트리엠 LED가 설치된 공간">
+  <img src="led-showcase-assets/site/img-175-2.jpg" alt="국립수목원 강당에 설치된 가로 12.8m LED 전광판" loading="lazy">
+  <div class="split" aria-hidden="true"></div>
+  <div class="band-c rv"><h2 class="display">공간이<br>화면이 됩니다</h2><p>강당 · 체육관 · 회의실 · 옥외 · 기상정보 · 전자현수막</p></div>
+  <p class="band-cap">국립수목원 강당 · 12800 × 2880 mm · SMD P2.5 · 캐비닛 120개</p>
+  <a class="band-go" href="#cases"><span class="link">설치 사례<br>보기 <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></span></a>
+</section>
+
+<section aria-label="적용 분야">
+  <div class="uses">
+    <article class="use rv"><div class="ph"><img src="led-showcase-assets/site/img-9-2-t.jpg" alt="경기도청소년수련원 강당 LED 전광판" loading="lazy"></div><h3><small>공간을 빛내는 혁신</small>강당 · 체육관 전광판</h3><ul><li>현장 친화 디자인 및 다양한 제품</li><li>Tool Free 방식으로 전·후면 개폐 및 허브보드 분리 편리</li><li>유선 케이블 최소화 구조로 장애 발생 최소화</li></ul></article>
+    <article class="use rv"><div class="ph"><img src="led-showcase-assets/site/img-117-1-t.jpg" alt="한국수력원자력 청평발전소 로비 전자현수막" loading="lazy"></div><h3><small>다양한 환경에 최적의 영상</small>전자현수막</h3><ul><li>다양한 활용 시나리오에 부합하는 최적화 플랫폼</li><li>최소 공간으로 최대 정보 전달, 스마트 정보 솔루션</li><li>다양한 설치 환경을 지원하는 고정식 · 이동식 설계</li></ul></article>
+    <article class="use rv"><div class="ph"><img src="led-showcase-assets/site/img-191-1-t.jpg" alt="순천대학교 회의실 LED 전광판" loading="lazy"></div><h3><small>경제성과 효율성을 모두 갖춘</small>회의실 · 강의실 전광판</h3><ul><li>16:9 표준 화면비로 최신 콘텐츠와 완벽 호환</li><li>하나의 캐비닛에서 SMD · GOB · COB 모듈 선택</li><li>전면 유지보수 방식으로 간편한 설치 · 관리</li></ul></article>
+    <article class="use rv"><div class="ph"><img src="led-showcase-assets/site/img-196-1-t.jpg" alt="울산 월계초등학교 현관 옥외 전광판" loading="lazy"></div><h3><small>실외에서 더욱 선명한</small>옥외용 전광판</h3><ul><li>강력한 방수, 방진 제품으로 내구성 강화</li><li>인허가부터 운영까지 전체 업무 지원</li><li>편리한 전·후면 시공 및 AS</li></ul></article>
+    <article class="use rv"><div class="ph"><img src="led-showcase-assets/use-weather.jpg" alt="기상 전광판" loading="lazy"></div><h3><small>기후환경정보 실시간 제공</small>기상 전광판</h3><ul><li>실시간 데이터 기반의 생활밀착형 정보 제공</li><li>미세먼지, 폭우 등 악천후에서도 압도적 밝기와 선명함</li><li>실시간 원격 제어 기반의 운영 편의성 향상</li></ul><p class="note">※ 조달 등록 예정</p></article>
+    <article class="use rv"><div class="ph"><img src="led-showcase-assets/use-cms.jpg" alt="CMS 솔루션 화면" loading="lazy"></div><h3><small>직관적 디자인의</small>편리한 CMS 솔루션</h3><ul><li>여러 대의 디스플레이를 원격 제어로 실시간 관리</li><li>실시간 정보, 이미지 등 다양한 콘텐츠를 하나의 화면에서 구현</li><li>역할별 관리자 지정으로 보안 및 복수 사용자 관리</li></ul></article>
+  </div>
+</section>
+
+<section class="sec" id="pixel" aria-label="픽셀 기술">
+  <div class="sec-head">
+    <p class="eyebrow rv">03 · 픽셀</p>
+    <h2 class="h2 rv">가까이 볼수록<br>다른 세 가지 방식</h2>
+    <p class="lead rv">같은 캐비닛이라도 LED 소자를 어떻게 올리느냐에 따라 화질과 내구성이 달라집니다. 설치 장소에 맞는 방식을 고르세요.</p>
+  </div>
+  <div class="pix">
+    <article class="px rv"><canvas data-k="smd" aria-label="SMD 픽셀 확대 그림" role="img"></canvas><p class="eyebrow">03 · 픽셀 — Surface Mounted Device</p><h3>SMD</h3><p>PCB 기판에 직접 설치하여 모듈을 구성하는, 가장 보편화된 방식. 넓은 시야각과 자연스러운 색감이 특징입니다.</p><div class="chips"><span>피치 1.5 ~ 2.5 mm</span><span>600 nit</span><span>3840 Hz</span></div></article>
+    <article class="px rv"><canvas data-k="gob" aria-label="GOB 픽셀 확대 그림" role="img"></canvas><p class="eyebrow">03 · 픽셀 — Glue On Board</p><h3>GOB</h3><p>모듈 표면에 특수 접착제를 도포해 칩을 직접 보호합니다. 충격과 습기에 강해 체육관 · 지하철 역사처럼 손이 닿는 곳에 설치합니다.</p><div class="chips"><span>피치 1.25 ~ 2.5 mm</span><span>600 nit</span><span>3840 Hz</span></div></article>
+    <article class="px rv"><canvas data-k="cob" aria-label="COB 픽셀 확대 그림" role="img"></canvas><p class="eyebrow">03 · 픽셀 — Chip On Board</p><h3>COB</h3><p>PCB 기판에 반도체 칩을 직접 내장합니다. 무광 표면과 우수한 색상 균일성, 먼지 · 습기 · 충격에 강한 내구성을 갖췄습니다.</p><div class="chips"><span>피치 1.25 mm</span><span>600 nit</span><span>3840 Hz</span><span>시야각 160˚</span></div></article>
+  </div>
+</section>
+
+<section class="sec" id="spec" aria-label="제품 규격">
+  <div class="sec-head">
+    <p class="eyebrow rv">04 · 규격</p>
+    <h2 class="h2 rv">캐비닛 규격은<br>두 가지로 충분합니다</h2>
+    <p class="lead rv">두께 53.9mm의 경량 캐비닛. Tool Free 방식으로 전 · 후면을 열고 허브보드를 분리하며, 모듈과 부품은 슬롯 방식으로 유지보수합니다.</p>
+  </div>
+  <div class="twin">
+    <div class="rv"><p class="eyebrow">TH 시리즈</p><b>640 × 480<small>mm</small></b><span>4:3 · SMD · GOB</span></div>
+    <div class="rv"><p class="eyebrow">LS 시리즈</p><b>600 × 337.5<small>mm</small></b><span>16:9 · SMD · GOB · COB 통합</span></div>
+  </div>
+  <div class="spec-box">
+    <p class="eyebrow" style="margin-bottom:14px">조달등록 제품 규격</p>
+    <div class="tabs" role="tablist" id="specTabs"></div>
+    <p class="spec-desc" id="specDesc"></p>
+    <div class="tbl-scroll" id="specTables" tabindex="0" aria-label="제품 규격표 (가로로 스크롤)"></div>
+    <p class="spec-note">※ AVC : Advanced Video Contents · 조달가격은 나라장터 또는 상담으로 확인해 주세요.</p>
+  </div>
+  <div class="badges">
+    <div class="rv"><img src="led-showcase-assets/badge-quality.png" alt="" loading="lazy">품질보증조달물품<br>A등급</div>
+    <div class="rv"><img src="led-showcase-assets/badge-eco.png" alt="" loading="lazy">친환경 인증</div>
+    <div class="rv"><span class="bt">2</span>품질보증기간<br>2년</div>
+    <div class="rv"><span class="bt">A</span>기업신용평가<br>A등급</div>
+  </div>
+</section>
+
+<section class="sec" id="calc" aria-label="캐비닛 계산 프로그램">
+  <div class="sec-head">
+    <p class="eyebrow rv">05 · 계산</p>
+    <h2 class="h2 rv">크기를 넣으면<br>캐비닛 수량을 추천합니다</h2>
+    <p class="lead rv">LED 타입을 고르고 전광판 가로 · 세로 길이(mm)를 입력하면 대각선 인치와 가로 / 세로 / 총 캐비닛 수를 계산합니다.</p>
+  </div>
+  <div class="calc">
+    <form id="cForm" novalidate>
+      <div class="field"><label for="cType">LED 타입</label><select id="cType"></select></div>
+      <div class="field two"><div><label for="cW">가로 크기 (mm)</label><input id="cW" type="number" inputmode="numeric" min="1" step="1" value="6400"></div><div><label for="cH">세로 크기 (mm)</label><input id="cH" type="number" inputmode="numeric" min="1" step="1" value="3360"></div></div>
+      <div class="field two"><div><label for="cRW">가로 계산 방식</label><select id="cRW"><option value="rec">추천</option><option value="ceil">올림 (Ceil)</option><option value="floor">내림 (Floor)</option></select></div><div><label for="cRH">세로 계산 방식</label><select id="cRH"><option value="rec">추천</option><option value="ceil">올림 (Ceil)</option><option value="floor">내림 (Floor)</option></select></div></div>
+      <div class="field"><label for="cPitch">픽셀 피치 (해상도 계산용)</label><select id="cPitch"></select></div>
+      <div class="field"><span>실제 납품 사례로 보기</span><div class="presets" id="cPresets"></div></div>
+      <p class="calc-err" id="cErr" role="alert"></p>
+    </form>
+    <div class="calc-out" aria-live="polite">
+      <div class="prev-box"><div class="wall-prev" id="cPrev" aria-hidden="true"></div></div>
+      <div class="results">
+        <div><b id="rCount"></b><span>총 캐비닛 수</span></div>
+        <div><b id="rCols"></b><span>가로 캐비닛 수</span></div>
+        <div><b id="rRows"></b><span>세로 캐비닛 수</span></div>
+        <div><b id="rInch"></b><span>대각선 (입력 크기 기준)</span></div>
+      </div>
+      <table class="ctbl"><tbody>
+        <tr><th>LED 타입</th><td id="tType"></td></tr>
+        <tr><th>캐비닛 규격</th><td id="tCab"></td></tr>
+        <tr><th>입력 크기</th><td id="tIn"></td></tr>
+        <tr><th>실제 크기</th><td id="tReal"></td></tr>
+        <tr><th>차이 (실제 − 입력)</th><td id="tDiff"></td></tr>
+        <tr><th>해상도</th><td id="tRes"></td></tr>
+      </tbody></table>
+      <div class="rec" id="cRec"></div>
+      <ul class="calc-notes">
+        <li>대각선(inch) = √(가로² + 세로²) × 39.37007874, 입력 크기 기준</li>
+        <li>추천은 올림과 내림 중 입력 크기에 더 가까운 수량입니다. 차이가 같으면 올림을 추천합니다.</li>
+        <li>내림(floor) 선택 시 해당 방향은 입력값보다 작아질 수 있습니다(부족 가능).</li>
+        <li>참고용 계산입니다. 설치 환경에 맞는 구성은 상담으로 확인해 주세요. <a href="https://treemled.co.kr/theme/led/html/product/comm_03.php">공식 캐비닛 계산 프로그램</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="quality" aria-label="품질 검증">
+  <div class="sec-head">
+    <p class="eyebrow rv">06 · 품질</p>
+    <h2 class="h2 rv">16가지 테스트를<br>거쳐 출고합니다</h2>
+    <p class="lead rv">부품 선정부터 생산, 성능 검증까지 체계적으로 관리합니다. 품질보증 2년과 생산물 배상책임보험을 함께 제공합니다.</p>
+  </div>
+  <div class="tests" id="tests"></div>
+</section>
+
+<section class="sec" id="build" aria-label="시공 과정">
+  <div class="sec-head">
+    <p class="eyebrow rv">07 · 시공</p>
+    <h2 class="h2 rv">벽 하나가<br>화면이 되기까지</h2>
+    <p class="lead rv">실측한 크기에 맞춰 프레임을 세우고, 캐비닛과 모듈을 차례로 올립니다. 실제 시공 현장 사진입니다.</p>
+  </div>
+  <div class="steps">
+    <figure class="rv"><div class="ph"><img src="led-showcase-assets/site/img-1-1-t.jpg" alt="벽면에 세운 LED 전광판 철골 프레임" loading="lazy"></div><figcaption><b>01</b><h3>프레임 설치</h3><p>실측한 크기에 맞춰 벽면에 철골 프레임을 세우고 수평을 맞춥니다.</p></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="led-showcase-assets/site/img-72-2-t.jpg" alt="프레임에 캐비닛을 고정하는 작업자" loading="lazy"></div><figcaption><b>02</b><h3>캐비닛 부착</h3><p>프레임에 캐비닛을 한 장씩 고정하고 전원 · 신호 케이블을 연결합니다.</p></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="led-showcase-assets/site/img-19-2-t.jpg" alt="캐비닛 앞면에 LED 모듈을 끼우는 작업자" loading="lazy"></div><figcaption><b>03</b><h3>모듈 장착</h3><p>캐비닛 앞면에 LED 모듈을 끼워 화면을 채웁니다.</p></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="led-showcase-assets/site/img-1-7-t.jpg" alt="완성된 곡면 LED 전광판" loading="lazy"></div><figcaption><b>04</b><h3>점검 · 완료</h3><p>밝기와 색을 맞추고 콘텐츠를 띄워 최종 점검한 뒤 넘겨드립니다.</p></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" id="cases" aria-label="설치 사례">
+  <div class="sec-head">
+    <p class="eyebrow rv">08 · 사례</p>
+    <h2 class="h2 rv">설치 사례</h2>
+    <p class="lead rv">학교 강당부터 공공기관, 대학, 호텔까지 실제 납품 현장입니다. 크기 · 피치 · 캐비닛 수는 납품 기록 기준이며, 사진을 누르면 크게 볼 수 있습니다.</p>
+  </div>
+  <div class="case-top">
+    <div class="tabs" id="caseTabs" role="tablist"></div>
+    <a class="link" href="https://treemled.co.kr/bbs/board.php?bo_table=reference">공식 홈페이지 사례 게시판 <svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></a>
+  </div>
+  <div class="case-grid" id="caseGrid"></div>
+  <div class="more-row"><button type="button" class="pill" id="caseMore">더 보기</button></div>
+</section>
+<dialog class="lb" id="lb" aria-label="설치 사례 크게 보기">
+  <button type="button" class="lb-x" data-a="x" aria-label="닫기">×</button>
+  <button type="button" class="lb-nav prev" data-a="-1" aria-label="이전 사례">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button type="button" class="lb-nav next" data-a="1" aria-label="다음 사례">›</button>
+</dialog>
+
+<section class="sec" id="film" aria-label="홍보 영상">
+  <div class="sec-head">
+    <p class="eyebrow rv">09 · 영상</p>
+    <h2 class="h2 rv">영상으로 보는<br>트리엠 LED</h2>
+  </div>
+  <div class="player" id="player" style="background-image:url(led-showcase-assets/hero-lilac.jpg)"><button type="button" aria-label="홍보 영상 재생"><span>▶ 영상 재생</span></button></div>
+</section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="foot-top">
+    <h2 class="h2 rv">공간을 밝힐 LED,<br>지금 상담하세요</h2>
+    <div class="cta rv"><a class="pill solid" href="https://treemled.co.kr/theme/led/html/formmail/inquiry.php">상담 · 견적 문의</a><a class="pill" href="tel:1577-2552">고객상담 1577-2552</a><a class="pill" href="https://treemled.co.kr/">www.treemled.co.kr</a></div>
+    <div class="side rv"><b>1577-2552</b>고객상담 · E-mail jodal@treem.co.kr</div>
+  </div>
+  <div class="offices">
+    <div><b>본사</b>서울특별시 성동구 상원길 19, 4층(성수동1가, 신한IT타워)<br>TEL 02-2024-1900 · FAX 02-2024-1901</div>
+    <div><b>공장 / 물류센터</b>경기도 포천시 해룡로 83-56<br>TEL 031-543-1901</div>
+    <div><b>영남지사</b>부산광역시 동래구 충렬대로 290(낙민동)<br>TEL 051-557-1901</div>
+    <div><b>중부지사</b>대전광역시 서구 청사로 148, 201호(둔산동, 매그놀리아)<br>TEL 042-471-1901</div>
+    <div><b>제주지사</b>제주특별자치도 제주시 전농로5길 4, 1층(삼도1동)<br>TEL 064-758-9100</div>
+  </div>
+  <div class="foot-bot">
+    <div class="mark"><img src="led-showcase-assets/logo-color.png" alt="TREEM (주)트리엠" loading="lazy" width="649" height="184"></div>
+    <p class="mottos">지혜롭게 판단하고<br>공정하게 거래하며<br>정의롭게 실행하고<br>정직하게 책임진다</p>
+    <p class="copy">(주)트리엠 · 대표이사 김동수<br>대한민국 LED 표준기업</p>
+  </div>
+</footer>
+
+<script>
+/* hero: one full-screen shader quad (the LED wall content), paused whenever the hero is off screen */
+(function(){
+const hero=document.querySelector('.hero'),cv=document.getElementById('wall'),tiles=document.getElementById('tiles');
+const coarse=matchMedia('(max-width:900px), (pointer:coarse)').matches;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* 70 cabinets light up one after another */
+const cols=matchMedia('(max-width:900px)').matches?5:10,rows=70/cols;
+let h='';for(let i=0;i<70;i++){const c=i%cols,r=(i/cols)|0;const d=(c/(cols-1))*620+(r/(rows-1))*260+Math.random()*90;h+=`<i style="--d:${d.toFixed(0)}ms"></i>`}
+tiles.innerHTML=h;
+let on=reduce?1:0,onT=reduce?1:.3,t0=performance.now();
+setTimeout(()=>{hero.classList.add('ui')},120);
+if(reduce){hero.classList.add('lit')}else{
+  setTimeout(()=>{hero.classList.add('go');onT=1},450);
+  setTimeout(()=>hero.classList.add('lit'),1450);
+  setTimeout(()=>{tiles.style.display='none'},2400);
+}
+const gl=cv.getContext('webgl',{antialias:false,alpha:false,depth:false,stencil:false,powerPreference:'high-performance',preserveDrawingBuffer:false});
+if(!gl){hero.style.background='#0d2a5c url(led-showcase-assets/band-screen.jpg) center/cover';return}
+const OCT=coarse?3:4;
+const vs='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
+const fs=`#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+uniform vec2 R;uniform float T,ON;
+float h21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float vn(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h21(i),h21(i+vec2(1,0)),f.x),mix(h21(i+vec2(0,1)),h21(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<${OCT};i++){s+=a*vn(p);p=p*2.03+7.1;a*=.5;}return s;}
+void main(){
+  vec2 uv=gl_FragCoord.xy/R;float asp=R.x/R.y;
+  vec2 q=vec2(uv.x*min(asp,2.2)/1.9,uv.y);
+  vec2 p=q*vec2(3.2,1.7);float t=T;
+  float n=fbm(p+vec2(t*.05,-t*.025));
+  float band=fbm(vec2(p.x*.7+n*1.5-t*.04,p.y*1.4+n));
+  float yc=asp<1.?.62:.42;
+  float ribbon=smoothstep(.2,.75,band)*smoothstep(1.05,.2,abs(uv.y-yc-.2*sin(q.x*4.+t*.18+n*3.))*2.3);
+  vec3 c=mix(vec3(.05,.13,.30),vec3(.09,.26,.55),uv.y);
+  c+=ribbon*1.25*mix(vec3(.08,.86,.42),vec3(.05,.45,1.),smoothstep(.2,.85,q.x+n*.3-.1));
+  c+=pow(ribbon,3.)*vec3(.65,.95,.75);
+  float st=step(.9975,h21(floor(uv*vec2(336.*asp,336.))));c+=st*vec3(.75)*(.5+.5*sin(t+uv.x*90.));
+  gl_FragColor=vec4(c*ON,1.);
+}`;
+function sh(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw gl.getShaderInfoLog(s);return s}
+const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);gl.useProgram(pr);
+const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+const la=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(la);gl.vertexAttribPointer(la,2,gl.FLOAT,false,0,0);
+const uR=gl.getUniformLocation(pr,'R'),uT=gl.getUniformLocation(pr,'T'),uO=gl.getUniformLocation(pr,'ON');
+/* the content is soft, so the buffer can be smaller than the screen and scaled up */
+const SCALE=coarse?.5:.75;
+function size(){const w=Math.max(1,Math.round(cv.clientWidth*SCALE)),h=Math.max(1,Math.round(cv.clientHeight*SCALE));if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(uR,w,h)}}
+size();
+if(window.ResizeObserver)new ResizeObserver(size).observe(cv);else addEventListener('resize',size);
+let vis=true,raf=0,last=performance.now(),T=7;
+function frame(now){raf=0;const dt=Math.min((now-last)/1000,.1);last=now;T+=dt;
+  on+=(onT-on)*(1-Math.exp(-dt*(onT>=1?2.2:6)));
+  gl.uniform1f(uT,T);gl.uniform1f(uO,on);gl.drawArrays(gl.TRIANGLES,0,3);
+  if(vis&&!document.hidden)raf=requestAnimationFrame(frame)}
+function kick(){if(!raf&&vis&&!document.hidden){last=performance.now();raf=requestAnimationFrame(frame)}}
+if(window.IntersectionObserver)new IntersectionObserver(e=>{vis=e[0].isIntersecting;kick()}).observe(hero);
+document.addEventListener('visibilitychange',kick);
+kick();
+})();
+
+/* reveal on scroll (no scroll listeners) */
+(function(){
+const els=[...document.querySelectorAll('.rv,.rule')];
+if(!window.IntersectionObserver){els.forEach(e=>e.classList.add('in'));return}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target;const sib=[...el.parentElement.children].filter(x=>x.classList.contains('rv'));const k=Math.max(0,sib.indexOf(el));el.style.transitionDelay=Math.min(k,6)*70+'ms';el.classList.add('in');io.unobserve(el)}}),{rootMargin:'0px 0px -8% 0px'});
+els.forEach(e=>io.observe(e));
+})();
+
+/* mobile menu */
+(function(){
+const b=document.getElementById('burger'),m=document.getElementById('mmenu');
+const set=v=>{document.body.classList.toggle('menu-open',v);b.setAttribute('aria-expanded',v);b.setAttribute('aria-label',v?'메뉴 닫기':'메뉴 열기')};
+b.addEventListener('click',()=>set(!document.body.classList.contains('menu-open')));
+m.addEventListener('click',e=>{if(e.target.closest('a'))set(false)});
+})();
+
+/* 02 products */
+(function(){
+const IMG='led-showcase-assets/lineup/',PAGE='https://treemled.co.kr/theme/led/html/';
+const items=[
+ {nav:'친환경 인증',prod:'친환경 인증 제품',eye:'공공 조달 · 친환경 인증 제품',name:'에너지를 아끼는 표준 전광판',desc:'한국산업환경기술원 친환경 인증을 획득한 에너지 절감형 LED 안내전광판입니다. 공공조달 친환경 정책에 부합합니다.',specs:['피치 1.25 ~ 2.5 mm','600 nit','3840 Hz','640 × 480 mm'],scene:'img_detail_green.jpg',cut:'product_items_1.png',url:'procurement/pro_01.php'},
+ {nav:'모듈 통합형',prod:'모듈 통합형 제품',eye:'공공 조달 · 모듈 통합형 제품',name:'캐비닛 하나로 SMD · GOB · COB',desc:'하나의 캐비닛에서 세 가지 모듈을 모두 사용합니다. 16:9 표준 화면비로 최신 콘텐츠와 호환되고, 설치와 유지관리가 효율적입니다.',specs:['피치 1.25 ~ 2.5 mm','600 nit','3840 Hz','600 × 337.5 mm'],scene:'img_detail_integrated.jpg',cut:'led_integrated_smd.png',url:'procurement/pro_02.php'},
+ {nav:'AVC 전문',prod:'AVC 특화 제품',eye:'공공 조달 · AVC 전문 제품',name:'방송과 촬영을 위한 7680Hz',desc:'800nit 고휘도와 7680Hz 초고주사율을 적용한 방송 특화 제품으로, 방송 및 영상 촬영 환경에 최적화했습니다.',specs:['피치 1.53 ~ 1.86 mm','800 nit','7680 Hz','640 × 480 mm'],scene:'img_detail_broadcast.jpg',cut:'led_broadcast_smd.png',url:'procurement/pro_03.php'},
+ {nav:'기상전광판',prod:'기상 전광판',eye:'공공 조달 · 기상전광판',name:'악천후에도 선명한 정보',desc:'기후 · 환경 정보를 실시간으로 제공합니다. 강력한 방진 · 방수 설계로 미세먼지와 폭우 속에서도 가독성을 유지합니다.',specs:['피치 3.91 mm','5000 nit','3840 Hz','IP 65/65'],scene:'main_visual01.jpg',dim:.55,cut:'led_weather_smd.png',url:'procurement/pro_04.php'},
+ {nav:'전자현수막',prod:'전자현수막',eye:'제품 안내 · 전자현수막',name:'현수막을 대신하는 디스플레이',desc:'다양한 장소와 환경에서 최적의 영상을 제공합니다. 설치 환경에 맞춘 화면 구현과 넓은 시야각, 풍부한 색감이 특징입니다.',specs:['피치 1.25 ~ 2.5 mm','SMD · GOB · COB','600 nit','3840 Hz'],scene:'product_pro_banner_2.jpg',cut:'product_items_2.png',url:'product/pro_02.php'},
+ {nav:'옥외용',prod:'옥외용 전광판',eye:'제품 안내 · 옥외용 전광판',name:'전면 IP68의 야외 전광판',desc:'강력한 방진 · 방수 설계와 세밀한 색감 보정으로 실외에서도 고휘도의 균일한 화질을 제공합니다. 전 · 후면 시공과 A/S가 편리합니다.',specs:['피치 3.91 mm','5000 nit','3840 Hz','IP 68/66'],scene:'product_pro_outdoor_1.jpg',cut:'product_items_3.png',url:'product/pro_03.php'},
+ {nav:'LED 렌탈',prod:'LED 렌탈 서비스',eye:'제품 안내 · LED 렌탈',name:'합리적 가격과 편리함을 함께',desc:'상담부터 설계, 설치, 운영까지 전문가가 관리합니다. 유연한 설치 각도와 전 · 후면 IP65의 견고한 내구성을 갖췄습니다.',specs:['+10˚ ~ -10˚ 설치','IP 65/65'],scene:'../site/img-x1-4.jpg',cut:'product_pro_rental_2.png',url:'product/pro_06.php'},
+ {nav:'LED 브래킷',prod:'LED 브래킷',eye:'제품 안내 · LED 브래킷',name:'전용 브래킷으로 완성하는 설치',desc:'전문시험기관의 검증을 통과한 안내전광판 전용 브래킷입니다. TH · LS 두 규격에 맞춰 벽부형으로 설치합니다.',specs:['스틸','벽부형','3 kg','TBK-SG640480 · TBK-SG600337'],scene:'main_visual02.jpg',dim:.62,cut:'led_main_bracket.png',url:'product/pro_04.php'},
+ {nav:'CMS',prod:'CMS 솔루션',eye:'제품 안내 · TREEM CMS',name:'콘텐츠를 한 곳에서 관리',desc:'네트워크 기반으로 이미지, 동영상, 텍스트, WEB, 생방송을 통합 관리합니다. 날씨, 미세먼지, 뉴스 등 실시간 정보도 제공합니다.',specs:['GS 인증 1등급','화면 분할','일정 관리','Windows · Android'],scene:'main_visual03.jpg',dim:.6,cut:'product_cms_screen.png',url:'product/pro_05.php'}
+];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const ar='<svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.1"/></svg>';
+const box=document.getElementById('prod');
+box.innerHTML=items.map((it,i)=>`<button type="button" class="pcell" data-i="${i}" aria-pressed="false"><span class="no">${String(i+1).padStart(2,'0')}</span><b>${esc(it.prod)}</b><small>${esc(it.specs.slice(0,2).join(' · '))}</small></button>`).join('')+
+ `<div class="ppanel" id="ppanel"><div class="pp-bg"></div><div class="pp-shade"></div><img class="pp-cut" alt="" decoding="async"><div class="pp-txt"><p class="eyebrow"></p><h3></h3><p class="d"></p><div class="chips"></div><a class="link" target="_blank" rel="noopener">상세 사양 보기 ${ar}</a></div></div>`+
+ `<a class="pall" href="https://treemled.co.kr/"><span class="link">treemled.co.kr에서 전체 제품 보기 ${ar}</span></a><p class="pnote">조달등록 제품은 나라장터에서 물품식별번호로 찾을 수 있습니다.</p>`;
+const cells=[...box.querySelectorAll('.pcell')],panel=document.getElementById('ppanel');
+const bg=panel.querySelector('.pp-bg'),cut=panel.querySelector('.pp-cut'),tx=panel.querySelector('.pp-txt');
+/* desktop: panel sits in columns 4-5 of the first three rows; the 3x3 cells fill columns 1-3 */
+function place(){const mob=matchMedia('(max-width:900px)').matches;cells.forEach((c,i)=>{c.style.gridColumn=mob?'':String(i%3+1);c.style.gridRow=mob?'':String(((i/3)|0)+1)});
+  if(mob){box.insertBefore(panel,box.querySelector('.pall'))}}
+place();matchMedia('(max-width:900px)').addEventListener?.('change',place);
+const pre=new Set();const preload=i=>{if(pre.has(i))return;pre.add(i);const a=new Image();a.src=IMG+items[i].scene;const c=new Image();c.src=IMG+items[i].cut};
+let cur=-1,tm=0;
+function show(i,first){if(i===cur)return;cur=i;preload(i);
+  cells.forEach((c,k)=>{c.classList.toggle('on',k===i);c.setAttribute('aria-pressed',k===i)});
+  const it=items[i];const apply=()=>{bg.style.backgroundImage=`url(${IMG+it.scene})`;
+    /* product photos already show the product; banner-type backdrops get the cut-out on top */
+    panel.classList.toggle('cutout',!!it.dim);panel.style.setProperty('--dim',it.dim||0);
+    if(it.dim){cut.src=IMG+it.cut;cut.alt=it.prod+' 제품 이미지'}else{cut.removeAttribute('src');cut.alt=''}
+    tx.querySelector('.eyebrow').textContent=it.eye;tx.querySelector('h3').textContent=it.name;tx.querySelector('.d').textContent=it.desc;
+    tx.querySelector('.chips').innerHTML=it.specs.map(s=>`<span>${esc(s)}</span>`).join('');tx.querySelector('a').href=PAGE+it.url;
+    requestAnimationFrame(()=>panel.classList.remove('swap'))};
+  clearTimeout(tm);if(first){apply();return}panel.classList.add('swap');tm=setTimeout(apply,280)}
+cells.forEach((c,i)=>{c.addEventListener('click',()=>show(i));c.addEventListener('mouseenter',()=>preload(i));c.addEventListener('focus',()=>preload(i))});
+show(0,true);
+})();
+
+/* 03 pixel close-ups, drawn once (redrawn only when the width changes) */
+(function(){
+const cvs=[...document.querySelectorAll('.px canvas')];
+/* a slice of the same aurora picture the hero wall shows: deep blue field, green-to-cyan ribbon, a few white highlights */
+function col(u,v){const yc=.5+.22*Math.sin(u*4.2+.8),r=Math.exp(-Math.pow((v-yc)*3.1,2)),g=Math.exp(-Math.pow((v-yc)*7,2));
+  const mixc=Math.min(1,Math.max(0,u*1.1-.05));
+  return[Math.min(1,.10+.10*v+r*(.08+.0*mixc)+g*.62),Math.min(1,.20+.18*v+r*(.86-.41*mixc)+g*.45),Math.min(1,.52+.25*v+r*(.42+.58*mixc)+g*.5)]}
+function draw(cv){const k=cv.dataset.k,d=Math.min(devicePixelRatio||1,2),W=Math.round(cv.clientWidth*d),H=Math.round(cv.clientHeight*d);if(!W||!H)return;
+  cv.width=W;cv.height=H;const g=cv.getContext('2d');
+  g.fillStyle=k==='cob'?'#0a0b0d':'#07090c';g.fillRect(0,0,W,H);
+  const n=k==='cob'?13:7,s=W/n,rows=Math.ceil(H/s)+1,oy=(H-rows*s)/2;
+  const rr=(x,y,w,h,r)=>{g.beginPath();if(g.roundRect)g.roundRect(x,y,w,h,r);else g.rect(x,y,w,h);g.fill()};
+  for(let y=0;y<rows;y++)for(let x=0;x<n;x++){
+    const u=(x+.5)/n,v=(y+.5)/rows,c=col(u,v),cx=x*s+s/2,cy=oy+y*s+s/2;
+    if(k!=='cob'){g.fillStyle='#16181c';rr(cx-s*.36,cy-s*.36,s*.72,s*.72,s*.07);g.fillStyle='#22252a';rr(cx-s*.3,cy-s*.3,s*.6,s*.6,s*.05)}
+    g.globalCompositeOperation='lighter';
+    const gr=s*(k==='gob'?.7:k==='cob'?.5:.55),ga=k==='gob'?.75:k==='cob'?.42:.5;
+    const rg=g.createRadialGradient(cx,cy,0,cx,cy,gr);const m=`${Math.round(255*c[0])},${Math.round(255*c[1])},${Math.round(255*c[2])}`;
+    rg.addColorStop(0,`rgba(${m},${ga})`);rg.addColorStop(1,`rgba(${m},0)`);g.fillStyle=rg;g.fillRect(cx-gr,cy-gr,gr*2,gr*2);
+    const cw=s*(k==='cob'?.13:.11),ch=s*(k==='cob'?.24:.22),off=s*(k==='cob'?.17:.16);
+    [[255,30,20,c[0],-off],[40,255,90,c[1],0],[50,90,255,c[2],off]].forEach(q=>{const a=Math.min(1,q[3]*1.15);g.fillStyle=`rgba(${q[0]},${q[1]},${q[2]},${a})`;rr(cx+q[4]-cw/2,cy-ch/2,cw,ch,cw*.25)});
+    g.globalCompositeOperation='source-over';
+  }
+  if(k==='gob'){const lg=g.createLinearGradient(0,0,W,H);lg.addColorStop(0,'rgba(255,255,255,.16)');lg.addColorStop(.38,'rgba(255,255,255,.02)');lg.addColorStop(.52,'rgba(255,255,255,.12)');lg.addColorStop(.6,'rgba(255,255,255,0)');lg.addColorStop(1,'rgba(255,255,255,.05)');g.fillStyle=lg;g.fillRect(0,0,W,H)}
+}
+let w0=0;const all=()=>{if(innerWidth===w0)return;w0=innerWidth;cvs.forEach(draw)};
+if(window.IntersectionObserver){const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){all();io.disconnect()}},{rootMargin:'400px'});cvs.forEach(c=>io.observe(c))}else all();
+let rt=0;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(w0)all()},150)});
+})();
+
+/* 04 spec tables, 06 tests, 07 cases, 08 film */
+(function(){
+/* values from the published catalog; procurement prices intentionally left out */
+const ROWS=['픽셀피치','물품식별번호','LED 타입','밝기','색온도','시야각(H/V)','모듈 사이즈(WxH)','모듈 해상도','캐비닛 사이즈','캐비닛 해상도','캐비닛 무게','캐비닛 재질','캐비닛 비율','IP(앞면/뒷면)','그레이스케일','명암비','재생률','전압(AC)','유지보수'];
+const LS=(m,p,id,led,mod,mres,cres,vh,ip,cr)=>[m,p,id,led,'600nit','4000–9500K',vh||'160/140',mod,'600×337.5×27mm',cres,'3±0.3kg','Die-cast aluminum','16:9',ip||'30/30','13bit',cr||'3000:1','3840Hz','100–240V','전면',mres];
+const AV=(m,p,id,led,mres,cres)=>[m,p,id,led,'800nit','2000–9500K','140/140','320×160mm','640×480×53.5mm',cres,'6.5kg','Die-cast aluminum','4:3','30/30','14bit','5000:1','7680Hz','100–240V','전·후면',mres];
+const SPEC=[
+ {tab:'모듈 통합형 제품',desc:'단일 캐비닛에 SMD, GOB, COB 모듈을 교체 장착이 가능한 통합형 제품으로, 16:9 표준 화면비를 적용하여 콘텐츠와 완벽하게 호환되는 영상을 제공합니다.',groups:[
+  ['SMD',[LS('TDGI-S9015LS','1.56mm','26240926','SMD1212','300×168.75mm','192×108px','384×216px'),LS('TDGI-S9018LS','1.87mm','26240925','SMD1515','300×168.75mm','160×90px','320×180px'),LS('TDGI-S9025LS','2.5mm','26240924','SMD2121','300×337.5mm','120×135px','240×135px')]],
+  ['GOB',[LS('TDGI-G9012LS','1.25mm','26240923','SMD1010','300×168.75mm','240×135px','480×270px'),LS('TDGI-G9015LS','1.56mm','26240922','SMD1212','300×168.75mm','192×108px','384×216px'),LS('TDGI-G9018LS','1.87mm','26240921','SMD1515','300×168.75mm','160×90px','320×180px'),LS('TDGI-G9025LS','2.5mm','26240920','SMD2121','300×337.5mm','120×135px','240×135px')]],
+  ['COB',[LS('TDGI-C9012LS','1.25mm','26240927','3-in-1 COB','300×168.75mm','240×135px','480×270px','160/160','54/30','10000:1')]]]},
+ {tab:'AVC 특화 제품',desc:'800nit 고휘도와 7680Hz 고주사율 규격의 방송 특화 제품으로, 원본에 가까운 선명한 화질을 구현합니다.',groups:[
+  ['SMD',[AV('TDGI-S3915','1.53mm','26011325','SMD1010','208×104px','416×312px'),AV('TDGI-S3918','1.86mm','26011324','SMD1515','172×86px','344×258px')]],
+  ['GOB',[AV('TDGI-G3912','1.25mm','26011323','SMD1010','256×128px','512×384px'),AV('TDGI-G3915','1.53mm','26011327','SMD1010','208×104px','416×312px'),AV('TDGI-G3918','1.86mm','26011326','SMD1515','172×86px','344×258px')]]]}
+];
+const ORDER=[1,2,3,4,5,6,7,19,8,9,10,11,12,13,14,15,16,17,18];
+const tabs=document.getElementById('specTabs'),desc=document.getElementById('specDesc'),box=document.getElementById('specTables');
+function show(i){const s=SPEC[i];[...tabs.children].forEach((b,k)=>{b.classList.toggle('on',k===i);b.setAttribute('aria-selected',k===i)});desc.textContent=s.desc;
+  box.innerHTML='<div class="groups">'+s.groups.map((g,gi)=>`<div class="grp"><h4>${g[0]}</h4><table class="spec"><thead><tr>${gi===0?'<th class="k">모델명</th>':''}${g[1].map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead><tbody>${ROWS.map((r,ri)=>`<tr>${gi===0?`<td class="k">${r}</td>`:''}${g[1].map(c=>`<td>${c[ORDER[ri]]}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`).join('')+'</div>';}
+tabs.innerHTML=SPEC.map(s=>`<button type="button" role="tab">${s.tab}</button>`).join('');
+[...tabs.children].forEach((b,i)=>b.addEventListener('click',()=>show(i)));show(0);
+
+document.getElementById('tests').innerHTML=['하드웨어 테스트(1차)','하드웨어 테스트(2차)','케이블 테스트','광학 테스트','발열 테스트(내부 온도)','발열 테스트(화면 온도)','방수 테스트','전자파 적합성 테스트','고/저온 테스트','공정 자재 테스트','납땜 페이스트 테스트','PCB 잉크 색상 테스트','색상 균일성 테스트','하단 쉘 자동 잠금 테스트','머신 비전 테스트','에이징 테스트'].map((n,i)=>`<div><b>${String(i+1).padStart(2,'0')}</b>${n}</div>`).join('');
+
+/* installation cases — photos from the site-photo archive (only sites already published on the official homepage);
+   size / pitch / cabinet count from the delivery list; the cabinet count is shown only when it matches the size */
+const S='led-showcase-assets/site/';
+const C=[
+ ['10-1','부산삼성여자고등학교','강당','10240 × 2400 mm','SMD','P2.5',80,'hall'],['202-2','경기여자고등학교','강당','10880 × 3840 mm','SMD','P2.5',136,'hall'],
+ ['90-1','광주광역시교육청 AI교육원','강당','7680 × 4320 mm','GOB','P2.5',108,'hall'],['126-1','한국항공우주연구원','발사체기술협력동 로비','11520 × 2880 mm','GOB','P1.86',108,'lobby'],
+ ['218-1','경상국립대학교 본관','회의실','6600 × 2700 mm','COB','P1.25',88,'room'],['166-2','광주 광산구청','강당','9600 × 960 mm','SMD','P2.5',30,'banner'],
+ ['142-1','제주 롯데호텔','수영장','4000 × 2000 mm','SMD','P3.91',0,'out'],['92-1','부산대학교 통합기계관','국제회의장','6400 × 3360 mm','SMD','P1.53',70,'room'],
+ ['162-1','소백산중학교','강당','5760 × 3360 mm','GOB','P2.5',63,'hall'],['113-1','달성어린이숲도서관','로비','4320 × 1280 mm','SMD','P1.53',0,'lobby'],
+ ['170-1','경찰대학 본관','국제회의장','3840 × 2400 mm','GOB','P1.53',30,'room'],['157-1','진천 문화예술회관','안내데스크','5760 × 640 mm','GOB','P1.25',0,'banner'],
+ ['200-1','박문여자고등학교','강당','8160 × 4480 mm','SMD','P2.5',0,'hall'],['138-1','성남시 분당구청','로비','5120 × 2400 mm','GOB','P1.86',40,'lobby'],
+ ['186-2','춘천 폴리텍대학 콘텐츠학과','다목적실','5760 × 3360 mm','SMD','P1.53',63,'room'],['55-2','인천소방학교','옥외','8000 × 1000 mm','SMD','P3.91',8,'out'],
+ ['181-2','인천 효성초등학교','강당','4480 × 2400 mm','GOB','P2.5',35,'hall'],['194-1','무안 오룡중학교','로비','5120 × 1920 mm','GOB','P1.53',32,'lobby'],
+ ['156-1','서울대학교 환경안전원','연구안전체험센터','3600 × 2025 mm','COB','P1.2',36,'room'],['192-1','광주시교육청 AI교육원','출입구','4480 × 960 mm','GOB','P2.5',14,'banner'],
+ ['140-1','안동 풍산초등학교','강당','6400 × 3360 mm','GOB','P1.86',70,'hall'],['112-1','수원 망포중학교','로비','4800 × 1280 mm','SMD','P1.86',0,'lobby'],
+ ['223-1','서울파트너스하우스','컨퍼런스홀','4480 × 3840 mm','SMD','P1.53',56,'room'],['160-1','경찰대학 국제교육훈련센터','옥외 현수막','11520 × 960 mm','SMD','',0,'out'],
+ ['153-1','청주고등학교','강당','5760 × 3360 mm','SMD','P1.86',63,'hall'],['178-1','경주여자고등학교','로비','6400 × 2400 mm','SMD','P1.86',50,'lobby'],
+ ['177-2','충남대학교 사회과학대학','다목적실','4480 × 2400 mm','GOB','P1.86',35,'room'],['155-1','경남지방조달청','회의실','3600 × 337.5 mm','COB','P1.2',6,'banner'],
+ ['81-1','구미 도량초등학교','강당','6400 × 3840 mm','GOB','P2.5',80,'hall'],['87-1','국립공주대학교 도서관','로비','3840 × 1920 mm','SMD','P1.86',24,'lobby'],
+ ['232-1','포항교육청 노을관','대회의실','5120 × 2880 mm','SMD','P2.5',48,'room'],['97-1','중부대학교','회의실','5760 × 960 mm','SMD','P2.5',18,'banner'],
+ ['59-1','서울 용강중학교','체육관','6400 × 3840 mm','GOB','P2.5',80,'hall'],['224-1','성수 리에병원','로비','3200 × 2400 mm','GOB','P1.53',0,'lobby'],
+ ['6-2','한국생산기술연구원','다목적실','4480 × 2400 mm','SMD','P1.86',35,'room'],['99-1','강원생명과학고등학교','현관','4480 × 480 mm','GOB','P1.86',7,'banner'],
+ ['128-1','전남테크노파크','강당','6400 × 3840 mm','SMD','P1.86',80,'hall'],['143-1','정보통신산업진흥원 가상융합산업허브','로비','3200 × 1920 mm','GOB','P1.53',20,'lobby'],
+ ['64-1','서울대학교 환경안전원','교육실','3000 × 1350 mm','COB','P1.25',20,'room'],['119-1','구미 야은초등학교','강당','6400 × 3840 mm','GOB','P2.5',0,'hall'],
+ ['100-1','경상북도 의성군청','로비 계단','2880 × 3200 mm','SMD','P1.86',0,'lobby'],['161-2','충북테크노파크','첨단반도체기술융합관','3200 × 1920 mm','GOB','P1.53',20,'room'],
+ ['46-1','공주대학교 공과대학','강당','6440 × 2880 mm','GOB','P2.5',0,'hall'],['133-1','서울대학교 환경안전원','로비','2400 × 1013 mm','COB','P1.25',0,'lobby'],
+ ['173-1','서울 난우중학교','다목적실','4480 × 1920 mm','SMD','P1.8',28,'room'],['106-1','경기 송산고등학교','강당','5760 × 3360 mm','GOB','P2.5',0,'hall'],
+ ['101-1','금오공과대학교 산학협력단','다목적실','5120 × 3360 mm','GOB','P1.86',56,'room']
+].map(c=>({f:'img-'+c[0],name:c[1],place:c[2],size:c[3],kind:c[4],pitch:c[5],cab:c[6],cat:c[7]}));
+const CATS=[['all','전체'],['hall','강당 · 체육관'],['room','회의 · 강의실'],['lobby','로비 · 안내'],['banner','전자현수막'],['out','옥외'],['cob','COB']];
+const grid=document.getElementById('caseGrid'),ct=document.getElementById('caseTabs'),more=document.getElementById('caseMore');
+const spec=c=>[c.size,[c.kind,c.pitch].filter(Boolean).join(' '),c.cab?`캐비닛 ${c.cab}개`:''].filter(Boolean).join(' · ');
+let cat='all',shown=12,list=C;
+ct.innerHTML=CATS.map(([k,n])=>`<button type="button" role="tab" data-k="${k}">${n} <small>${k==='all'?C.length:C.filter(c=>k==='cob'?c.kind==='COB':c.cat===k).length}</small></button>`).join('');
+function cases(){list=cat==='all'?C:C.filter(c=>cat==='cob'?c.kind==='COB':c.cat===cat);
+  grid.innerHTML=list.slice(0,shown).map((c,i)=>`<figure><span class="no">${String(i+1).padStart(2,'0')}</span><button type="button" class="ph" data-i="${i}" aria-label="${c.name} ${c.place} 크게 보기"><img src="${S+c.f}-t.jpg" alt="${c.name} ${c.place} LED 전광판" loading="lazy" width="720" height="480"></button><figcaption>${c.name}<span>${c.place} · ${spec(c)}</span></figcaption></figure>`).join('');
+  [...ct.children].forEach(b=>{const on=b.dataset.k===cat;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+  const left=list.length-shown;more.hidden=left<=0;more.textContent=`더 보기 (${left}곳 더)`;}
+ct.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.k;shown=12;cases()});
+more.addEventListener('click',()=>{shown+=12;cases()});
+cases();
+/* lightbox */
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbc=lb.querySelector('figcaption');let li=0;
+function open(i){li=(i+list.length)%list.length;const c=list[li];lbi.src=S+c.f+'.jpg';lbi.alt=`${c.name} ${c.place} LED 전광판`;lbc.innerHTML=`<b>${c.name}</b> ${c.place}<span>${spec(c)}</span>`;if(!lb.open){if(lb.showModal)lb.showModal();else lb.setAttribute('open','')}}
+grid.addEventListener('click',e=>{const b=e.target.closest('.ph');if(b)open(+b.dataset.i)});
+lb.addEventListener('click',e=>{const a=e.target.closest('[data-a]');if(a){a.dataset.a==='x'?lb.close():open(li+ +a.dataset.a);return}if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowRight')open(li+1);if(e.key==='ArrowLeft')open(li-1)});
+let tx0=0;lb.addEventListener('touchstart',e=>{tx0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx0;if(Math.abs(d)>50)open(li+(d<0?1:-1))});
+
+const player=document.getElementById('player');
+player.querySelector('button').addEventListener('click',()=>{player.innerHTML='<iframe src="https://player.vimeo.com/video/1187214892?autoplay=1" title="트리엠 홍보 영상" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>'});
+})();
+
+/* 05 cabinet calculator — same types, cabinet sizes and formulas as the official program (treemled.co.kr comm_03), input in mm */
+(function(){
+const TYPES=[
+ {k:'smd',name:'친환경(SMD/GOB)',w:640,h:480,pitch:{'1.25':[512,384],'1.53':[416,312],'1.86':[344,258],'2.0':[320,240],'2.5':[256,192]},def:'2.5'},
+ {k:'cob',name:'친환경(COB)',w:600,h:337.5,pitch:{'1.25':[480,270]},def:'1.25'},
+ {k:'modular',name:'모듈 통합형(SMD/GOB/COB)',w:600,h:337.5,module:'300mm × 169mm',pitch:{'1.25':[480,270],'1.56':[384,216],'1.87':[320,180],'2.5':[240,135]},def:'2.5'},
+ {k:'avc',name:'AVC 전문제품(SMD/GOB)',w:640,h:480,pitch:{'1.25':[512,384],'1.53':[416,312],'1.86':[344,258]},def:'1.53'},
+ {k:'out',name:'옥외용(0.5)',w:500,h:500,pitch:{'3.91':[128,128]},def:'3.91'},
+ {k:'out1',name:'옥외용(1.0)',w:1000,h:1000,pitch:{'3.91':[256,256]},def:'3.91'},
+ {k:'weather',name:'기상전광판',w:1000,h:1000,pitch:{'3.91':[256,256]},def:'3.91'}];
+const PRESETS=[['평택교육지원청','smd',6400,3360,'2.5'],['코레일 동대구역사','modular',3600,2025,'1.25'],['폴리텍대학 강당','smd',5760,2880,'1.53'],['일원동 복합문화센터','smd',4480,2400,'1.53']];
+const $=id=>document.getElementById(id);
+const cT=$('cType'),cW=$('cW'),cH=$('cH'),cRW=$('cRW'),cRH=$('cRH'),cP=$('cPitch'),prev=$('cPrev'),err=$('cErr');
+const fmt=n=>n.toLocaleString('ko-KR',{maximumFractionDigits:1});
+const sgn=n=>(Math.round(n*10)/10>=0?'+':'−')+fmt(Math.abs(Math.round(n*10)/10));
+const cab=t=>`${fmt(t.w)} × ${fmt(t.h)} mm`;
+cT.innerHTML=TYPES.map(t=>`<option value="${t.k}">${t.name} · ${cab(t)}</option>`).join('');
+const cur=()=>TYPES.find(t=>t.k===cT.value);
+function fillPitch(sel){const t=cur(),keys=Object.keys(t.pitch);cP.innerHTML=keys.map(k=>`<option value="${k}">P${k} mm</option>`).join('');cP.value=sel&&keys.includes(sel)?sel:t.def}
+function axis(len,size,mode){
+  const q=len/size,up=Math.max(1,Math.ceil(q-1e-9)),dn=Math.max(1,Math.floor(q+1e-9));
+  const rec=Math.abs(dn*size-len)<Math.abs(up*size-len)?dn:up;
+  return {up,dn,rec,n:mode==='ceil'?up:mode==='floor'?dn:rec};
+}
+function calc(){
+  const t=cur(),W=parseFloat(cW.value),H=parseFloat(cH.value);
+  if(!(W>0)||!(H>0)){err.textContent='가로·세로 크기를 mm 단위의 양수로 입력해 주세요.';return}
+  err.textContent='';
+  const ax=axis(W,t.w,cRW.value),ay=axis(H,t.h,cRH.value),c=ax.n,r=ay.n;
+  const RW=c*t.w,RH=r*t.h,inch=Math.sqrt((W/1000)**2+(H/1000)**2)*39.37007874,inchReal=Math.sqrt((RW/1000)**2+(RH/1000)**2)*39.37007874;
+  const px=t.pitch[cP.value];
+  $('rCount').textContent=(c*r)+' EA';$('rCols').textContent=c+' 열';$('rRows').textContent=r+' 행';$('rInch').textContent=inch.toFixed(1)+' inch';
+  $('tType').textContent=t.name;
+  $('tCab').textContent=cab(t)+(t.module?` · 모듈 ${t.module}`:'');
+  $('tIn').textContent=`${fmt(W)} × ${fmt(H)} mm`;
+  $('tReal').textContent=`${fmt(RW)} × ${fmt(RH)} mm (대각선 ${inchReal.toFixed(1)} inch)`;
+  $('tDiff').textContent=`가로 ${sgn(RW-W)} mm / 세로 ${sgn(RH-H)} mm`;
+  $('tRes').textContent=px?`${fmt(c*px[0])} × ${fmt(r*px[1])} px (P${cP.value})`:'-';
+  const line=(lab,len,size,a,unit)=>a.up===a.dn?`${lab}: ${a.up}${unit}로 딱 맞습니다 (${fmt(a.up*size)} mm)`:`${lab}: 올림 ${a.up}${unit} ${fmt(a.up*size)} mm(${sgn(a.up*size-len)}) / 내림 ${a.dn}${unit} ${fmt(a.dn*size)} mm(${sgn(a.dn*size-len)}) → <b>${a.rec}${unit} 추천</b>`;
+  $('cRec').innerHTML=`<strong>추천 수량</strong>${line('가로',W,t.w,ax,'열')}<br>${line('세로',H,t.h,ay,'행')}`;
+  const bx=prev.parentElement,avail=bx.clientWidth-2*parseFloat(getComputedStyle(bx).paddingLeft||0)-2,cell=Math.min(avail/RW,260/RH);
+  prev.style.width=(RW*cell)+'px';prev.style.height=(RH*cell)+'px';
+  prev.style.gridTemplateColumns=`repeat(${c},1fr)`;prev.style.gridTemplateRows=`repeat(${r},1fr)`;
+  prev.innerHTML=c*r<=600?'<i></i>'.repeat(c*r):'';
+}
+cT.addEventListener('change',()=>{fillPitch();calc()});
+[cW,cH,cRW,cRH,cP].forEach(e=>e.addEventListener('input',calc));
+$('cForm').addEventListener('submit',e=>{e.preventDefault();calc()});
+const pb=$('cPresets');
+PRESETS.forEach(p=>{const b=document.createElement('button');b.type='button';b.textContent=p[0];b.addEventListener('click',()=>{cT.value=p[1];fillPitch(p[4]);cW.value=p[2];cH.value=p[3];cRW.value=cRH.value='rec';calc()});pb.append(b)});
+fillPitch('2.5');calc();
+let cw0=innerWidth;addEventListener('resize',()=>{if(innerWidth!==cw0){cw0=innerWidth;calc()}});
+})();
+</script>
+<script>
+if(/[?&]fps\b/.test(location.search)){(function(){var d=document.createElement('div');d.style.cssText='position:fixed;left:8px;top:64px;z-index:99;background:rgba(0,0,0,.75);color:#7dffa0;font:700 13px/1.4 monospace;padding:6px 9px;border-radius:6px;pointer-events:none;white-space:pre';document.body.appendChild(d);var n=0,t0=performance.now(),worst=0,last=t0;function f(now){n++;worst=Math.max(worst,now-last);last=now;if(now-t0>=500){var c=document.getElementById('wall');d.textContent=Math.round(n*1000/(now-t0))+' fps  (최저 '+Math.round(1000/worst)+')\n화면 '+innerWidth+'x'+innerHeight+' dpr '+devicePixelRatio+'\n3D '+(c?c.width+'x'+c.height:'-');n=0;t0=now;worst=0}requestAnimationFrame(f)}requestAnimationFrame(f)})()}
+</script>
+</body>
+</html>
