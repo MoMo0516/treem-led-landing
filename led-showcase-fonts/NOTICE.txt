@@ -1,0 +1,4 @@
+﻿이 폴더의 글꼴은 SIL Open Font License 1.1로 배포되며, 글꼴 파일 단독 판매는 금지됩니다.
+
+Pretendard - 저작권자: Kil Hyung-jin (orioncactus). 전문: Pretendard-LICENSE.txt, https://github.com/orioncactus/pretendard
+Paperlogy(페이퍼로지) - 저작권자: 이주임 X 김도균(눈누 표기). 출처: https://noonnu.cc/font_page/1456
